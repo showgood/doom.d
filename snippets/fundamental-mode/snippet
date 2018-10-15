@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: snippet template
+# key: sn
+# insert snippet template
+# --
+
+# -*- mode: snippet -*-
+# name: ${1:snippet name}
+# key: ${2:snippet key}
+# ${3:comment}
+# --
+$0

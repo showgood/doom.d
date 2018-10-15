@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: is variable list type
+# key: listp
+# --
+if type(${1:variable}) is list:
+    $2

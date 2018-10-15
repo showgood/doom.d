@@ -1,0 +1,4 @@
+#name : (epoch -> datetimetz)
+# key: poche
+# --
+`(let ((cmd (format "unixtime(%s)" (get-kill-ring)))) (calc-eval cmd))`

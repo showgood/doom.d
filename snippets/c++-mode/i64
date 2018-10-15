@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: int64
+# key: i64
+# --
+bsls::Types::Int64 ${1:variable} = $2;
+$0

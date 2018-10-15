@@ -2,8 +2,12 @@
 ;;; ~/.doom.d/packages.el
 
 ;;; Examples:
-;; (package! some-package)
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 
-(packame! general)
+(package! general)
+(package! bookmark+)
+(package! hl-anything)
+(package! tldr)
+(package! dash-at-point)
+(package! feature-mode)

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: TODO
+# key: td
+# insert // TODO: 
+# --
+// TODO: $0

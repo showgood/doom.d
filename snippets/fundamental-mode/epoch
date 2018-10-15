@@ -1,0 +1,4 @@
+#name : (datetimetz -> epoch)
+# key: epoch
+# --
+`(calc-eval "unixtime(now(0))")`

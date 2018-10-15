@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: BAEL_LOG_SET_CATEGORY
+# key: logc
+# --
+BAEL_LOG_SET_CATEGORY("${1:class::method}");
+$0

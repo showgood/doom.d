@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: is variable string type
+# key: stringp
+# --
+if isinstance(${1:variable}, basestring):

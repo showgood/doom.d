@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: logger.info()
+# key: logi
+# condition: t
+# --
+
+logger.info('${1: error message here.} ${2:%s}' % (${3:obj}))

@@ -1,0 +1,25 @@
+AccessModifierOffset: -4
+AlignTrailingComments: true
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBinaryOperators: false
+BreakBeforeBraces: Allman
+BreakConstructorInitializersBeforeComma: true
+ColumnLimit: 100
+IndentWidth: 4
+Language: Cpp
+NamespaceIndentation: All
+SpaceBeforeParens: Never
+SpaceInEmptyParentheses: false
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+#activeProgramOK.Subscribe( *this );
+#true means above
+#I like no space
+SpacesInParentheses: false
+SpaceBeforeAssignmentOperators: true
+Standard: Cpp03
+UseTab: Never

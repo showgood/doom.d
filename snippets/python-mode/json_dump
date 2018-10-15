@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: object --> json string
+# key: json_dump
+# --
+
+import json
+${2:s} = json.dumps(${1:obj})
+
+$0

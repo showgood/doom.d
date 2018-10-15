@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: BAEL_LOG_INFO
+# key: logi
+# --
+BAEL_LOG_INFO << "${1:info here}" << BAEL_LOG_END;
+$0

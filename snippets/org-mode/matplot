@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: ipython block for importing matplotlib
+# key: plt 
+# --
+
+#+BEGIN_SRC ipython :session :results raw drawer
+  %matplotlib inline
+  import matplotlib.pyplot as plt
+  import numpy as np
+#+END_SRC

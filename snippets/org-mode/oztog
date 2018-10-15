@@ -1,0 +1,9 @@
+#name : (oz --> g)
+# key: oz
+# --
+
+| oz       | g   |
+|----------+-----|
+| ${1:1}oz | g$0 |
+|----------+-----|
+#+TBLFM: \$2='(calc-eval (math-convert-units (calc-eval \$1 'raw) (calc-eval "g" 'raw)))

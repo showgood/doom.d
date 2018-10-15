@@ -1,0 +1,5 @@
+/TAGS
+# ignore directory
+/directoryAbc/
+*.log.*
+/build/

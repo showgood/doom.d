@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: constructor
+# key: ifelse
+# --
+if (${1:condition})
+{
+    `%`$0
+}
+else
+{
+}

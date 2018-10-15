@@ -11,6 +11,7 @@
              #'find-file))))))
 
 ;(load! myhydra)
+;+default/yank-buffer-filename
 
 (general-define-key
  :states '(normal visual insert emacs)
@@ -39,8 +40,8 @@
  "bB" '(switch-to-buffer :which-key "Switch to buffer")
  "br" '(rename-buffer :which-key "rename buffer")
  "bk" '(doom/kill-this-buffer :which-key "kill buffer")
- "bs" '(open-scratch :which-key "open scratch")
- "bt" '(me/switch-to-project-term :which-key "open project terminal")
+ "bs" '(doom/open-scratch-buffer :which-key "open scratch")
+ "bt" '(me/switch-to-workspace-term :which-key "open project terminal")
 
  "e" '(:ignore t :which-key "Errors")
  "el" '(flycheck-list-errors :which-key "List errors")
@@ -53,7 +54,7 @@
  "ff" '(counsel-find-file :which-key "find file")
  "fj" '(dired-jump :which-key "dired jump")
  "fn" '(cp-filename-of-current-buffer :which-key "yank filename only")
- "fp" '(+hlissner/yank-buffer-filename :which-key "yank file full path")
+ "fp" '(+default/yank-buffer-filename :which-key "yank file full path")
  "fo" '(hydra-folding/body :which-key "hydra folding")
  "fr" '(counsel-recentf :which-key "recent file")
 
@@ -90,8 +91,8 @@
  "jI" '(imenu-anywhere :which-key "Imenu across buffers")
  "jm" '(evil-show-marks :which-key "show marks")
  "jr" '(counsel-evil-registers :which-key "show registers")
- "jo" '(+jump/online :which-key "online search")
- "js" '(+jump/online-select :which-key "Online providers")
+ "jo" '(+lookup/online :which-key "online search")
+ "js" '(+lookup/online-select :which-key "Online providers")
  "jt" '(counsel-etags-find-tag-at-point :which-key "counsel etags")
 
  "l" '(:ignore t :which-key "workspace/layout")
@@ -123,10 +124,10 @@
  "po" '(+term/open-popup-in-project :which-key "+term/open-popup-in-project")
 
  "s" '(:ignore t :which-key "snippets / switch")
- "sf" '(yas-new-snippet :which-key "yas-new-snippet")
+ "sn" '(yas-new-snippet :which-key "yas-new-snippet")
  "si" '(yas-insert-snippet :which-key "yas-insert-snippet")
- "ss" '(yas-visit-snippet-file :which-key "yas-visit-snippet-file")
- "sS" '(showgood/find-in-snippets :which-key "showgood/find-in-snippets")
+ "sf" '(yas-visit-snippet-file :which-key "yas-visit-snippet-file")
+ "sF" '(showgood/find-in-snippets :which-key "showgood/find-in-snippets")
 
  "t"  '(:ignore t :which-key "toggle")
  "td" '(dired-sidebar-toggle-sidebar :which-key "dired-sidebar-toggle-sidebar")
@@ -135,7 +136,7 @@
  "tf" '(visual-fill-column-mode :which-key "visual-fill-column-mode")
  "ts" '(flyspell-mode :which-key "flyspell-mode")
  "tc" '(flycheck-mode :which-key "flycheck-mode")
- "tg" '(+evil-goggles/toggle :which-key "+evil-goggles/toggle")
+ "tg" '(evil-goggles-mode :which-key "+evil-goggles/toggle")
  "ti" '(highlight-indentation-mode :which-key "highlight-indentation-mode")
  "tI" '(highlight-indentation-current-column-mode :which-key "highlight-indentation-current-column-mode")
 
@@ -436,12 +437,6 @@
  "cc" '(slime-compile-defun :which-key "slime-compile-defun")
  )
 
-(general-define-key
- :states '(normal)
- :keymaps 'helpful-mode-map
- "q" '(me/close-helpful-buffer :which-key "close window")
- )
-
 ;; this two lines are needed to make C-i works for evil-jump-forward
 ;; historically C-i and <Tab> has same keycode
 ;; https://emacs.stackexchange.com/questions/17509/how-to-distinguish-c-i-from-tab
@@ -455,7 +450,16 @@
  :keymaps 'company-active-map
  "C-n" 'company-select-next
  "C-p" 'company-select-previous
- )
+)
+
+(general-define-key
+  :states '(normal)
+  :keymaps 'web-mode-map
+  "<tab>" '(web-mode-fold-or-unfold :which-key "fold")
+  "<backtab>" '(web-mode-element-children-fold-or-unfold :which-key "fold child")
+  ",e" '(web-mode-element-content-select :which-key "mark element content")
+)
+
 ;; keyboard shortcuts
 ;; (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
 ;; (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-add-text-annotation)

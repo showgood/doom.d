@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: FIXME:
+# key: fxm
+# insert FIXME: 
+# --
+FIXME: $0

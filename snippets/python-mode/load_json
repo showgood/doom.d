@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: load json file into object
+# key: load_json
+# --
+
+import json
+
+f = open(${1:file}, 'r')
+${2:obj} = json.loads(f.read())
+$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: logger.debug()
+# key: logd
+# condition: t
+# --
+
+logger.debug('${1: error message here.} ${2:%s}' % (${3:obj}))

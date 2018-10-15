@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: lisp with tangle
+# key: <lst
+# --
+#+begin_src lisp :results value raw :tangle ${1:test.lisp}
+$0
+#+end_src

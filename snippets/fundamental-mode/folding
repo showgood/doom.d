@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: manual folding block
+# key: fo
+# insert ;; ==== folding start {{{ ====
+# --
+;; ==== ${1: folding start} {{{ ====
+$0
+;; ==== END $1 }}} ====

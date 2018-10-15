@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: BAEL_LOG_ERROR
+# key: loge
+# --
+BAEL_LOG_ERROR << "${1:error here}" << BAEL_LOG_END;
+$0

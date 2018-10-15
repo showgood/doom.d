@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: * ☛ TODO ${1:`(get-kill-ring)`}
+# key: td
+# --
+* ☛ TODO ${1:`(get-kill-ring)`}

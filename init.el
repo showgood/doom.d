@@ -13,6 +13,7 @@
        (syntax-checker   ; tasing you for every semicolon you forget
         +childframe)     ; use childframes for error popups (Emacs 26+ only)
        workspaces        ; tab emulation, persistence & separate workspaces
+       bb
 
        :completion
        (company          ; the ultimate code completion backend
@@ -59,16 +60,16 @@
        ;;eshell            ; a consistent, cross-platform shell (WIP)
        hideshow          ; basic code-folding support
        imenu             ; an imenu sidebar and searchable code index
-       ;;term              ; terminals in Emacs
+       term              ; terminals in Emacs
        vc                ; version-control and Emacs, sitting in a tree
 
        :tools
        ;;ansible
-       ;;docker
+       docker
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        ;;gist              ; interacting with github gists
-       ;;macos             ; MacOS-specific commands
+       macos             ; MacOS-specific commands
        ;;make              ; run make tasks from Emacs
        magit             ; a git porcelain for Emacs
        ;;password-store    ; password manager for nerds
@@ -137,9 +138,9 @@
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
-       ;;(write            ; emacs as a word processor (latex + org + markdown)
-       ;; +wordnut         ; wordnet (wn) search
-       ;; +langtool)       ; a proofreader (grammar/style check) for Emacs
+       (write            ; emacs as a word processor (latex + org + markdown)
+       +wordnut         ; wordnet (wn) search
+       +langtool)       ; a proofreader (grammar/style check) for Emacs
 
        :collab
        ;;floobits          ; peer programming for a price

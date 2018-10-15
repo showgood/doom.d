@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: #include <xyz.h>
+# key: <i 
+# --
+
+#include <${1:`(get-kill-ring)`}>$0

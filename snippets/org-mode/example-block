@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: example block
+# key: <ek
+# --
+#+BEGIN_EXAMPLE
+`(get-kill-ring)`
+#+END_EXAMPLE
+$0

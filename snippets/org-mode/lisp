@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: lisp
+# key: <ls
+# --
+#+begin_src lisp :results value raw
+$0
+#+end_src

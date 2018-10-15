@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: kill ring --> xml src code block
+# key: <x
+# --
+
+#+BEGIN_SRC xml
+${1:`(get-kill-ring)`}
+#+END_SRC
+
+$0
