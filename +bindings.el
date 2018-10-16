@@ -1,17 +1,6 @@
 ;;; ~/.doom.d/+bindings.el -*- lexical-binding: t; -*-
 
-(defmacro find-file-in! (path &optional project-p)
-  "Returns an interactive function for searching files."
-  `(lambda () (interactive)
-     (let ((default-directory ,path))
-       (call-interactively
-        ',(command-remapping
-           (if project-p
-               #'projectile-find-file
-             #'find-file))))))
-
 ;(load! myhydra)
-;+default/yank-buffer-filename
 
 (general-define-key
  :states '(normal visual insert emacs)
@@ -260,14 +249,10 @@
 
  ;; gq - evil-fill-and-move  (re-align text to fill column width)
 
- ;; gr -
+ "gr" '(tldr :which-key "tldr")
 
- ;; "gr" '(+eval:region :which-key "+eval:region")
- ;; "gR" '(+eval/buffer :which-key "+eval/buffer")
  "gs" '(evil-window-vsplit :which-key "split window vertically")
  "gS" '(evil-window-split :which-key "split window horizontally")
-
- ;; "gs" '(magit-status :which-key "magit status")
 
  "gt" '(doom/jump-to-last-workspace :which-key "toggle workspace")
  "gT" '(+workspace/switch-to :which-key "list all workspace to switch")
@@ -404,19 +389,51 @@
   (define-key evil-motion-state-map (kbd "<C-i>") 'evil-jump-forward))
 
 (general-define-key
- :states '(normal visual insert emacs)
- :keymaps 'company-active-map
- "C-n" 'company-select-next
- "C-p" 'company-select-previous
-)
-
-(general-define-key
   :states '(normal)
   :keymaps 'web-mode-map
   "<tab>" '(web-mode-fold-or-unfold :which-key "fold")
   "<backtab>" '(web-mode-element-children-fold-or-unfold :which-key "fold child")
   ",e" '(web-mode-element-content-select :which-key "mark element content")
 )
+
+;; (:after company
+;;         (:map company-active-map
+;;           ;; Don't interfere with `evil-delete-backward-word' in insert mode
+;;           "C-w"     nil
+;;           "C-n"     #'company-select-next
+;;           "C-p"     #'company-select-previous
+;;           "C-j"     #'company-select-next
+;;           "C-k"     #'company-select-previous
+;;           "C-h"     #'company-show-doc-buffer
+;;           "C-u"     #'company-previous-page
+;;           "C-d"     #'company-next-page
+;;           "C-s"     #'company-filter-candidates
+;;           (:when (featurep! :completion helm)
+;;             "C-S-s" #'helm-company)
+;;           (:when (featurep! :completion ivy)
+;;             "C-S-s" #'counsel-company)
+;;           "C-SPC"   #'company-complete-common
+;;           [tab]     #'company-complete-common-or-cycle
+;;           [backtab] #'company-select-previous)
+;;         ;; Automatically applies to `company-filter-map'
+;;         (:map company-search-map
+;;           "C-n"     #'company-select-next-or-abort
+;;           "C-p"     #'company-select-previous-or-abort
+;;           "C-j"     #'company-select-next-or-abort
+;;           "C-k"     #'company-select-previous-or-abort
+;;           "C-s"     (λ! (company-search-abort) (company-filter-candidates))
+;;           [escape]  #'company-search-abort))
+
+;; expand-region's prompt can't tell what key contract-region is bound to, so we
+;; tell it explicitly.
+(setq expand-region-contract-fast-key "V")
+
+;; (:map* (help-mode-map helpful-mode-map)
+;; :n "o"  #'ace-link-help
+;; :n "q"  #'quit-window
+;; :n "Q"  #'ivy-resume
+;; :n "]l" #'forward-button
+;; :n "[l" #'backward-button)
 
 ;; keyboard shortcuts
 ;; (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)

@@ -37,6 +37,13 @@
   :commands dash-at-point
 )
 
+;; NOTE: this needs to happen before require the bookmark+ package
+(setq bookmark-default-file (expand-file-name "~/bookmarks"))
+
+(def-package! bookmark+
+  :demand t
+)
+
 (require 'anki-editor)
 
 (load! "+bindings")
@@ -59,8 +66,6 @@
         ;; ("\\.org$" :trigger "__" :mode org-mode)
      )
 )
-
-(setq bookmark-default-file (expand-file-name "~/bookmarks"))
 
 ;; set this so search is performed on all buffers,
 ;; not just current buffer
@@ -98,3 +103,8 @@
 ;; )
 
 (toggle-frame-maximized)
+
+(defun me/test-machine ()
+  (interactive)
+  (build-machine-info "machines.csv")
+)
