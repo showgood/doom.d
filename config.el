@@ -5,9 +5,6 @@
       doom-unicode-font (font-spec :family "SF Mono")
       doom-big-font (font-spec :family "SF Mono" :size 20))
 
-; my key bindings
-(load! "+bindings")
-
 (def-package! feature-mode
   :mode "\\.feature$")
 
@@ -40,8 +37,13 @@
   :commands dash-at-point
 )
 
+(require 'anki-editor)
+
+(load! "+bindings")
+
 (setq evil-escape-key-sequence "jf")
 (setq +org-dir (concat (substitute-in-file-name "$HOME/") "org"))
+(setq +notes-dir (concat (substitute-in-file-name "$HOME/") "notes"))
 (defvar my-snippets-dir (expand-file-name "snippets/" doom-private-dir))
 (defvar my-templates-dir (expand-file-name "templates/" doom-private-dir))
 
@@ -76,6 +78,10 @@
 ; proper line wrapping
 (global-visual-line-mode 1)
 
+(setq dired-recursive-deletes 'always)
+;; try suggesting dired targets
+(setq dired-dwim-target t)
+
 ;; look before jump! so C-o/C-i works
 (evil-add-command-properties #'counsel-imenu :jump t)
 (evil-add-command-properties #'+jump/definition :jump t)
@@ -85,5 +91,10 @@
 (load! "+term.el")
 (load! "+ivy.el")
 (load! "+workspace.el")
+
+;; not working..not sure why..
+;; (after! ivy-posframe
+;;   (setq ivy-display-function #'ivy-posframe-display-at-point)
+;; )
 
 (toggle-frame-maximized)

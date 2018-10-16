@@ -11,3 +11,5 @@
 (package! tldr)
 (package! dash-at-point)
 (package! feature-mode)
+
+(package! anki-editor)

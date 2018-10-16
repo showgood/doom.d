@@ -30,8 +30,6 @@
  "RET" '(bookmark-jump :which-key "Jump to bookmark")
 
  "a" '(:ignore t :which-key "applications")
- "ad" '(deft :which-key "deft")
- "af" '(deft-find-file :which-key "deft-find-file")
  "ar" '(align-regexp :which-key "align-regexp")
  "at" '(+term/open :which-key "+term/open")
 
@@ -39,7 +37,7 @@
  "bb" '(persp-switch-to-buffer :which-key "Switch workspace buffer")
  "bB" '(switch-to-buffer :which-key "Switch to buffer")
  "br" '(rename-buffer :which-key "rename buffer")
- "bk" '(doom/kill-this-buffer :which-key "kill buffer")
+ "bk" '(doom/kill-this-buffer-in-all-windows :which-key "kill buffer")
  "bs" '(doom/open-scratch-buffer :which-key "open scratch")
  "bt" '(me/switch-to-workspace-term :which-key "open project terminal")
 
@@ -104,10 +102,10 @@
  "l TAB" '(doom/jump-to-last-workspace :which-key "toggle workspace")
 
  "n" '(:ignore t :which-key "Notes")
- "nn" '(showgood/find-in-notes :which-key "showgood/find-in-notes")
- "nN" '(showgood/browse-notes :which-key "showgood/browse-notes")
- "nd" '(showgood/find-in-docs :which-key "find in docs")
- "nD" '(showgood/browse-docs :which-key "browse docs")
+ "nn" '(+default/find-in-notes :which-key "showgood/find-in-notes")
+ "nN" '(+default/browse-notes :which-key "browse-notes")
+ ;; "nd" '(showgood/find-in-dotfiles :which-key "showgood/find-in-dotfiles")
+ ;; "nD" '(showgood/browse-dotfiles :which-key "showgood/browse-in-dotfiles")
 
  "o" '(:ignore t :which-key "bookmark")
  "om" '(bookmark-set :which-key "set bookmark")
@@ -127,11 +125,12 @@
  "sn" '(yas-new-snippet :which-key "yas-new-snippet")
  "si" '(yas-insert-snippet :which-key "yas-insert-snippet")
  "sf" '(yas-visit-snippet-file :which-key "yas-visit-snippet-file")
- "sF" '(showgood/find-in-snippets :which-key "showgood/find-in-snippets")
+ "sF" '(+default/find-in-snippets :which-key "find-in-snippets")
 
  "t"  '(:ignore t :which-key "toggle")
- "td" '(dired-sidebar-toggle-sidebar :which-key "dired-sidebar-toggle-sidebar")
- "tD" '(dired-sidebar-toggle-with-current-directory :which-key "dired sidebar cur directory")
+ ;; maybe I don't need this since we have treemacs now
+ ;; "td" '(dired-sidebar-toggle-sidebar :which-key "dired-sidebar-toggle-sidebar")
+ ;; "tD" '(dired-sidebar-toggle-with-current-directory :which-key "dired sidebar cur directory")
  "tv" '(visual-line-mode :which-key "visual-line-mode")
  "tf" '(visual-fill-column-mode :which-key "visual-fill-column-mode")
  "ts" '(flyspell-mode :which-key "flyspell-mode")
@@ -225,34 +224,6 @@
  "<f11>" '(org-agenda :which-key "org-agenda")
  "<f12>" '(org-todo :which-key "org-todo")
 
- ;; :nvime "<f9> c" #'cp-filename-of-current-buffer
- ;; ;; copy current line
- ;; :nvime "<f9> d" #'duplicate-line
- ;; :nvime "<f9> e" #'+eshell/open
-
- ;;  ;; :nvime "<f6>"  #'rtags-find-symbol-at-point
-
- ;; :nvime "<f5> d" #'ace-delete-window
- ;; :nvime "<f5> l" (lambda () (interactive) (list-matching-lines (current-word)))
-
- ;; :nvime "<f7> b" #'counsel-projectile-switch-to-buffer
- ;; :nvime "<f7> c" #'projectile-compile-project
- ;; :nvime "<f7> d" #'counsel-projectile-find-dir
- ;; :nvime "<f7> e" #'eval-region
- ;; :nvime "<f7> f" #'counsel-projectile-find-file
- ;; ;; open the file under cursor within project (C-c p g)
- ;; :nvime "<f7> g" #'projectile-find-file-dwim
- ;; :nvime "<f7> o" #'projectile-find-file-dwim-other-window
- ;; :nvime "<f7> s" #'counsel-rg
-
- ;; :nvime "<f7> c" #'projectile-compile-project
- ;; :nvime "<f7> d" #'counsel-projectile-find-dir
- ;; :nvime "<f7> e" #'eval-region
- ;; :nvime "<f7> f" #'counsel-projectile-find-file
- ;; ;; open the file under cursor within project (C-c p g)
- ;; :nvime "<f7> g" #'projectile-find-file-dwim
- ;; :nvime "<f7> o" #'projectile-find-file-dwim-other-window
- ;; :nvime "<f7> s" #'counsel-rg
  )
 
 (general-define-key
@@ -310,7 +281,6 @@
 
  "gx" '(evil-exchange :which-key "evil exchange")
  ;; gy - evil-commentary-yank
-
  ;; "gz" '(+eval:replace-region :which-key "replace region with eval result")
 
 ;;  ;; evil-mc
@@ -331,8 +301,6 @@
 ;;    :nv "C-N" #'evil-mc-make-and-goto-last-cursor
 ;;    :nv "C-p" #'evil-mc-make-and-goto-prev-cursor
 ;;    :nv "C-P" #'evil-mc-make-and-goto-first-cursor)
-
- ;; z-
  )
 
 (general-define-key
@@ -349,16 +317,6 @@
  "-" '(evil-numbers/dec-at-pt :which-key "evil-numbers/dec-at-pt")
  "c" '(counsel-git-grep-complete-line :which-key "counsel-git-grep-complete-line")
  )
-
-;; # TODO: define them for insert, emacs state
-;; :nvime "C-c +" #'evil-numbers/inc-at-pt
-;; :nvime "C-c -" #'evil-numbers/dec-at-pt
-
-;; :nvime "\C-cl" #'org-store-link
-;; :nvime "\C-cr" #'org-refile
-;;      :desc "Spelling error"      :nv "s" #'evil-next-flyspell-error
-;;      :desc "Spelling correction" :n  "S" #'flyspell-correct-word-generic)
-
 
 (general-define-key
  :prefix ","
@@ -413,6 +371,7 @@
 ;;  "C-x C-q" '(occur-cease-edit :which-key "quit edit")
 ;;  )
 
+;;  NOTE: do not override those keybindings.. come with doom-emacs
 ;;  ;; evil-multiedit
 ;;  :v  "R"     #'evil-multiedit-match-all
 ;;  :n  "M-d"   #'evil-multiedit-match-symbol-and-next
@@ -428,7 +387,6 @@
 ;;    (:map (evil-multiedit-state-map evil-multiedit-insert-state-map)
 ;;      "C-n" #'evil-multiedit-next
 ;;      "C-p" #'evil-multiedit-prev))
-
 
 (general-define-key
  :states '(normal)

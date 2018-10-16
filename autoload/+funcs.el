@@ -1,4 +1,4 @@
-;;; ~/.doom.d/autoloads.el -*- lexical-binding: t; -*-
+;;; ~/.doom.d/autoload/+funcs.el -*- lexical-binding: t; -*-
 
 ;; +workspace/new does NOT take the name from user input,
  ;; this solve that issue
