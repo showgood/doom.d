@@ -63,6 +63,7 @@
 (mapc (lambda (x) (push x +file-templates-alist))
     '(
         ("\\.feature$" :trigger "__" :mode feature-mode)
+        ("\\reveal.org$" :trigger "__reveal.org" :mode org-mode)
         ;; ("\\.org$" :trigger "__" :mode org-mode)
      )
 )
@@ -96,6 +97,7 @@
 (load! "+term.el")
 (load! "+ivy.el")
 (load! "+workspace.el")
+(load! "+org.el")
 
 ;; not working..not sure why..
 ;; (after! ivy-posframe

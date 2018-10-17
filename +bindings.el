@@ -127,6 +127,7 @@
  "tg" '(evil-goggles-mode :which-key "+evil-goggles/toggle")
  "ti" '(highlight-indentation-mode :which-key "highlight-indentation-mode")
  "tI" '(highlight-indentation-current-column-mode :which-key "highlight-indentation-current-column-mode")
+ "tt" '(treemacs :which-key "treemacs")
 
  "v"  '(:ignore t :which-key "vimish fold")
  "vd" '(vimish-fold-delete :which-key "fold delete")

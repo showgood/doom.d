@@ -1,0 +1,4 @@
+#+TITLE: ${1:`(file-name-base buffer-file-name)`}
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: moon
+#+DATE: `(format-time-string "<%Y-%m-%d %a>")`
