@@ -88,6 +88,9 @@
 ;; try suggesting dired targets
 (setq dired-dwim-target t)
 
+;; https://emacsbliss.com/annoyance-with-paste-in-evil-visual-mode/
+(setq evil-kill-on-visual-paste nil)
+
 ;; look before jump! so C-o/C-i works
 (evil-add-command-properties #'counsel-imenu :jump t)
 (evil-add-command-properties #'+jump/definition :jump t)
@@ -98,6 +101,9 @@
 (load! "+ivy.el")
 (load! "+workspace.el")
 (load! "+org.el")
+(load! "+lsp.el")
+(load! "+cc.el")
+(load! "+py.el")
 
 ;; not working..not sure why..
 ;; (after! ivy-posframe
@@ -105,8 +111,3 @@
 ;; )
 
 (toggle-frame-maximized)
-
-(defun me/test-machine ()
-  (interactive)
-  (build-machine-info "machines.csv")
-)

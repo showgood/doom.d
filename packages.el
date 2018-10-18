@@ -13,3 +13,12 @@
 (package! feature-mode)
 
 (package! anki-editor)
+
+(package! lsp-mode)
+(package! lsp-ui)
+(package! company-lsp)
+
+(package! lsp-python)
+
+(package! ccls)
+(package! clang-format)
