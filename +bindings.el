@@ -224,16 +224,17 @@
  "gb" '(+ivy/switch-workspace-buffer :which-key "switch workspace buffer")
  "gB" '(ivy-switch-buffer :which-key "switch all buffer")
  "gc" '(evil-commentary :which-key "evil commentary")
- "gd" '(+jump/definition :which-key "jump to definition")
- "gD" '(+jump/references :which-key "jump to references")
+ "gd" '(+lookup/definition :which-key "jump to definition")
+ "gD" '(+lookup/references :which-key "jump to references")
  "ge" '(+eval:region :which-key "+eval:region")
  "gE" '(+eval/buffer :which-key "+eval/buffer")
- "gf" '(counsel-projectile-find-file :which-key "projectile file")
- ;; gF -- maybe code format
+ "gf" '(counsel-find-file :which-key "find file")
+ "gF" '(counsel-projectile-find-file :which-key "projectile file")
 
  ;; gg - evil-goto-first-line
  "gh" '(dash-at-point :which-key "jump to Dash")
  "gi" '(counsel-imenu :which-key "counsel imenu")
+ "gI" '(lsp-ui-imenu :which-key "lsp-ui-imenu")
 
  ;; gj - evil-next-visual-line
  ;; gk - evil-previous-visual-line
@@ -268,6 +269,8 @@
  "gx" '(evil-exchange :which-key "evil exchange")
  ;; gy - evil-commentary-yank
  ;; "gz" '(+eval:replace-region :which-key "replace region with eval result")
+ "g-" '(+evil:narrow-buffer :which-key "narrow buffer")
+ "g=" '(widen :which-key "widen")
 
 ;;  ;; evil-mc
 ;;  (:prefix "gz"
@@ -397,44 +400,98 @@
   ",e" '(web-mode-element-content-select :which-key "mark element content")
 )
 
-;; (:after company
-;;         (:map company-active-map
-;;           ;; Don't interfere with `evil-delete-backward-word' in insert mode
-;;           "C-w"     nil
-;;           "C-n"     #'company-select-next
-;;           "C-p"     #'company-select-previous
-;;           "C-j"     #'company-select-next
-;;           "C-k"     #'company-select-previous
-;;           "C-h"     #'company-show-doc-buffer
-;;           "C-u"     #'company-previous-page
-;;           "C-d"     #'company-next-page
-;;           "C-s"     #'company-filter-candidates
-;;           (:when (featurep! :completion helm)
-;;             "C-S-s" #'helm-company)
-;;           (:when (featurep! :completion ivy)
-;;             "C-S-s" #'counsel-company)
-;;           "C-SPC"   #'company-complete-common
-;;           [tab]     #'company-complete-common-or-cycle
-;;           [backtab] #'company-select-previous)
-;;         ;; Automatically applies to `company-filter-map'
-;;         (:map company-search-map
-;;           "C-n"     #'company-select-next-or-abort
-;;           "C-p"     #'company-select-previous-or-abort
-;;           "C-j"     #'company-select-next-or-abort
-;;           "C-k"     #'company-select-previous-or-abort
-;;           "C-s"     (λ! (company-search-abort) (company-filter-candidates))
-;;           [escape]  #'company-search-abort))
-
 ;; expand-region's prompt can't tell what key contract-region is bound to, so we
 ;; tell it explicitly.
 (setq expand-region-contract-fast-key "V")
 
-;; (:map* (help-mode-map helpful-mode-map)
-;; :n "o"  #'ace-link-help
-;; :n "q"  #'quit-window
-;; :n "Q"  #'ivy-resume
-;; :n "]l" #'forward-button
-;; :n "[l" #'backward-button)
+(map!
+    (:map* (help-mode-map helpful-mode-map)
+    :n "o"  #'ace-link-help
+    :n "q"  #'quit-window
+    :n "Q"  #'ivy-resume
+    :n "]l" #'forward-button
+    :n "[l" #'backward-button)
+
+    (:after company
+        (:map company-active-map
+          ;; Don't interfere with `evil-delete-backward-word' in insert mode
+          "C-w"     nil
+          "C-n"     #'company-select-next
+          "C-p"     #'company-select-previous
+          "C-j"     #'company-select-next
+          "C-k"     #'company-select-previous
+          "C-h"     #'company-show-doc-buffer
+          "C-u"     #'company-previous-page
+          "C-d"     #'company-next-page
+          "C-s"     #'company-filter-candidates
+          (:when (featurep! :completion helm)
+            "C-S-s" #'helm-company)
+          (:when (featurep! :completion ivy)
+            "C-S-s" #'counsel-company)
+          "C-SPC"   #'company-complete-common
+          [tab]     #'company-complete-common-or-cycle
+          [backtab] #'company-select-previous)
+        ;; Automatically applies to `company-filter-map'
+        (:map company-search-map
+          "C-n"     #'company-select-next-or-abort
+          "C-p"     #'company-select-previous-or-abort
+          "C-j"     #'company-select-next-or-abort
+          "C-k"     #'company-select-previous-or-abort
+          "C-s"     (λ! (company-search-abort) (company-filter-candidates))
+          [escape]  #'company-search-abort))
+
+      ;; evil-mc
+      (:prefix "gz"
+        :nv "m" #'evil-mc-make-all-cursors
+        :nv "u" #'evil-mc-undo-all-cursors
+        :nv "z" #'+evil/mc-make-cursor-here
+        :nv "t" #'+evil/mc-toggle-cursors
+        :nv "n" #'evil-mc-make-and-goto-next-cursor
+        :nv "p" #'evil-mc-make-and-goto-prev-cursor
+        :nv "N" #'evil-mc-make-and-goto-last-cursor
+        :nv "P" #'evil-mc-make-and-goto-first-cursor
+        :nv "d" #'evil-mc-make-and-goto-next-match
+        :nv "D" #'evil-mc-make-and-goto-prev-match
+        :nv "j" #'evil-mc-make-cursor-move-next-line
+        :nv "k" #'evil-mc-make-cursor-move-prev-line)
+      (:after evil-mc
+        :map evil-mc-key-map
+        :nv "C-n" #'evil-mc-make-and-goto-next-cursor
+        :nv "C-N" #'evil-mc-make-and-goto-last-cursor
+        :nv "C-p" #'evil-mc-make-and-goto-prev-cursor
+        :nv "C-P" #'evil-mc-make-and-goto-first-cursor)
+
+      ;; evil-multiedit
+      :v  "R"     #'evil-multiedit-match-all
+      :n  "M-d"   #'evil-multiedit-match-symbol-and-next
+      :n  "M-D"   #'evil-multiedit-match-symbol-and-prev
+      :v  "M-d"   #'evil-multiedit-match-and-next
+      :v  "M-D"   #'evil-multiedit-match-and-prev
+      :nv "C-M-d" #'evil-multiedit-restore
+      (:after evil-multiedit
+        (:map evil-multiedit-state-map
+          "M-d" #'evil-multiedit-match-and-next
+          "M-D" #'evil-multiedit-match-and-prev
+          "RET" #'evil-multiedit-toggle-or-restrict-region)
+        (:map (evil-multiedit-state-map evil-multiedit-insert-state-map)
+          "C-n" #'evil-multiedit-next
+          "C-p" #'evil-multiedit-prev))
+
+      (:after evil-snipe
+        :map evil-snipe-parent-transient-map
+        ;; switch to evil-easymotion/avy after a snipe
+        "C-;" (λ! (require 'evil-easymotion)
+                  (call-interactively
+                   (evilem-create #'evil-snipe-repeat
+                                  :bind ((evil-snipe-scope 'whole-buffer)
+                                         (evil-snipe-enable-highlight)
+                                         (evil-snipe-enable-incremental-highlight))))))
+
+      ;; evil-surround
+      :v  "S"  #'evil-surround-region
+      :o  "s"  #'evil-surround-edit
+      :o  "S"  #'evil-Surround-edit
+)
 
 ;; keyboard shortcuts
 ;; (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
