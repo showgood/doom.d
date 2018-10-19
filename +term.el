@@ -10,12 +10,19 @@
 
 (add-hook 'term-mode-hook #'setup-my-term-mode)
 
+;; NOTE: need to disable evil-collection for term
+;; otherwise my keybindings won't work
+(push 'term +evil-collection-disabled-list)
+
+;; (load! "+evil-term.el")
+;; (require 'evil-term)
+
 (general-define-key
 :states 'normal
 :keymaps '(term-raw-map term-mode-map)
 "p" '(me/paste-in-term-mode :which-key "paste")
-"i" '(evil-emacs-state :which-key "insert")
-"a" '(evil-emacs-state :which-key "insert")
+"i" '(evil-insert-state :which-key "insert")
+"a" '(evil-insert-state :which-key "insert")
 "C-y" '(me/paste-in-term-mode :which-key "paste")
 "C-z" '(comint-clear-buffer :which-key "clear buffer")
 "C-h" '(evil-window-left :which-key "left window")

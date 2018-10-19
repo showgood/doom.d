@@ -1,7 +1,10 @@
 ;;; ~/.doom.d/+lsp.el -*- lexical-binding: t; -*-
 
 (def-package! lsp-mode
-  :commands (lsp-mode))
+  :commands (lsp-mode)
+  :config
+  (setq lsp-response-timeout 30)
+)
 
 (def-package! lsp-ui
 :hook (lsp-mode . lsp-ui-mode)
