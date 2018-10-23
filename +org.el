@@ -16,3 +16,6 @@
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                               (org-agenda-files :maxlevel . 9))))
 (setq org-refile-use-outline-path 'file)
+
+;; prettify the exported table in HTML, add border and column divider etc
+(setq org-html-table-default-attributes '(:border "2" :rules "all" :frame "border"))
