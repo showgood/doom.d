@@ -450,6 +450,29 @@
         :n "RET" #'flycheck-error-list-goto-error)
 )
 
+(general-define-key
+:states '(normal)
+:keymaps 'org-mode-map
+:prefix ","
+"ji" '(counsel-org-goto :which-key "counsel-org-goto")
+"jI" '(counsel-org-goto-all :which-key "counsel-org-goto-all")
+"c" '(org-ctrl-c-ctrl-c :which-key "org-ctrl-c-ctrl-c")
+"o" '(org-attach-open-in-emacs :which-key "open attachment")
+"a" '(org-attach-attach :which-key "attach file")
+"l" '(org-store-link :which-key "store link")
+"p" '(org-insert-link :which-key "insert link")
+"e" '(org-export-dispatch :which-key "export")
+"ti" '(org-clock-in :which-key "clock in")
+"to" '(org-clock-out :which-key "clock out")
+)
+
+(general-define-key
+:states '(normal)
+:keymaps 'org-mode-map
+:prefix "C-c"
+"l" '(org-store-link :which-key "org-store-link")
+)
+
 ;; keyboard shortcuts
 ;; (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
 ;; (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-add-text-annotation)

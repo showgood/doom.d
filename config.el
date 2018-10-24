@@ -115,4 +115,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.xml" . web-mode))
 
+(when IS-MAC (load! "+mac"))
+
 (toggle-frame-maximized)

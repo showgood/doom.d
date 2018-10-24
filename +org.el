@@ -19,3 +19,17 @@
 
 ;; prettify the exported table in HTML, add border and column divider etc
 (setq org-html-table-default-attributes '(:border "2" :rules "all" :frame "border"))
+
+(def-package! org-attach-screenshot
+  :commands (org-attach-screenshot)
+  :config
+  (setq org-attach-screenshot-command-line
+        "screencapture -i %f"
+
+        org-attach-screenshot-dirfunction
+		(lambda ()
+		  (concat +org-dir "/files/"))
+        )
+)
+
+(when IS-MAC (require 'org-mac-link))

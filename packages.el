@@ -25,3 +25,5 @@
 
 (package! ccls)
 (package! clang-format)
+
+(package! org-attach-screenshot)
