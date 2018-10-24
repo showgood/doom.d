@@ -271,26 +271,7 @@
  ;; "gz" '(+eval:replace-region :which-key "replace region with eval result")
  "g-" '(+evil:narrow-buffer :which-key "narrow buffer")
  "g=" '(widen :which-key "widen")
-
-;;  ;; evil-mc
-;;  (:prefix "gz"
-;;    :nv "m" #'evil-mc-make-all-cursors
-;;    :nv "u" #'evil-mc-undo-all-cursors
-;;    :nv "z" #'+evil/mc-make-cursor-here
-;;    :nv "t" #'+evil/mc-toggle-cursors
-;;    :nv "n" #'evil-mc-make-and-goto-next-cursor
-;;    :nv "p" #'evil-mc-make-and-goto-prev-cursor
-;;    :nv "N" #'evil-mc-make-and-goto-last-cursor
-;;    :nv "P" #'evil-mc-make-and-goto-first-cursor
-;;    :nv "d" #'evil-mc-make-and-goto-next-match
-;;    :nv "D" #'evil-mc-make-and-goto-prev-match)
-;;  (:after evil-mc
-;;    :map evil-mc-key-map
-;;    :nv "C-n" #'evil-mc-make-and-goto-next-cursor
-;;    :nv "C-N" #'evil-mc-make-and-goto-last-cursor
-;;    :nv "C-p" #'evil-mc-make-and-goto-prev-cursor
-;;    :nv "C-P" #'evil-mc-make-and-goto-first-cursor)
- )
+)
 
 (general-define-key
  :states '(visual)
@@ -344,38 +325,6 @@
  :keymaps 'override
  "M-y" '(counsel-yank-pop :which-key "counsel-yank-pop")
  )
-
-;; (general-define-key
-;;  :states '(normal ivy-occur-grep-mode-map)
-;;  :keymaps '(occur-mode-map )
-;;  "r" '(occur-rename-buffer :which-key "rename buffer")
-;;  "c" '(clone-buffer :which-key "clone buffer")
-;;  "C-x C-q" '(occur-edit-mode :which-key "edit mode")
-;;  "M-x" '(counsel-M-x :which-key "M-x")
-;;  )
-
-;; (general-define-key
-;;  :states '(normal)
-;;  :keymaps 'occur-edit-mode-map
-;;  "C-x C-q" '(occur-cease-edit :which-key "quit edit")
-;;  )
-
-;;  NOTE: do not override those keybindings.. come with doom-emacs
-;;  ;; evil-multiedit
-;;  :v  "R"     #'evil-multiedit-match-all
-;;  :n  "M-d"   #'evil-multiedit-match-symbol-and-next
-;;  :n  "M-D"   #'evil-multiedit-match-symbol-and-prev
-;;  :v  "M-d"   #'evil-multiedit-match-and-next
-;;  :v  "M-D"   #'evil-multiedit-match-and-prev
-;;  :nv "C-M-d" #'evil-multiedit-restore
-;;  (:after evil-multiedit
-;;    (:map evil-multiedit-state-map
-;;      "M-d" #'evil-multiedit-match-and-next
-;;      "M-D" #'evil-multiedit-match-and-prev
-;;      "RET" #'evil-multiedit-toggle-or-restrict-region)
-;;    (:map (evil-multiedit-state-map evil-multiedit-insert-state-map)
-;;      "C-n" #'evil-multiedit-next
-;;      "C-p" #'evil-multiedit-prev))
 
 (general-define-key
  :states '(normal)

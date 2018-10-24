@@ -103,38 +103,16 @@
 (load! "+org.el")
 (load! "+lsp.el")
 (load! "+cc.el")
-(load! "+py.el")
+
+;; lsp-python is too slow for me.. back to elpy
+;; (load! "+lsp-py.el")
+(load! "+elpy.el")
 
 ;; not working..not sure why..
 ;; (after! ivy-posframe
 ;;   (setq ivy-display-function #'ivy-posframe-display-at-point)
 ;; )
 
-;; TODO: number is not shown after candidates for some reason
-(defun ora-company-number ()
-  "Forward to `company-complete-number'.
-Unless the number is potentially part of the candidate.
-In that case, insert the number."
-  (interactive)
-  (let* ((k (this-command-keys))
-         (re (concat "^" company-prefix k)))
-    (if (cl-find-if (lambda (s) (string-match re s))
-                    company-candidates)
-        (self-insert-command 1)
-      (company-complete-number
-       (if (equal k "0")
-           10
-         (string-to-number k))))))
-
-(after! company
-(let ((map company-active-map))
-  (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
-        (number-sequence 0 9))
-  (define-key map " " (lambda ()
-                        (interactive)
-                        (company-abort)
-                        (self-insert-command 1)))
-  (define-key map (kbd "<return>") nil))
-)
+(add-to-list 'auto-mode-alist '("\\.xml" . web-mode))
 
 (toggle-frame-maximized)

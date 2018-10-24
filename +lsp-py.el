@@ -1,4 +1,4 @@
-;;; ~/.doom.d/+py.el -*- lexical-binding: t; -*-
+;;; ~/.doom.d/+py-lsp.el -*- lexical-binding: t; -*-
 
 (def-package! lsp-python
     :hook (python-mode . lsp-python-enable)
@@ -40,7 +40,3 @@
  "M" '(elpy-multiedit-stop :which-key "elpy-multiedit-stop")
  "t" '(elpy-test :which-key "elpy-test")
  )
-
-(add-hook 'python-mode-hook
-          ( lambda ()
-            ( define-key python-mode-map ( kbd "RET" ) 'newline-and-indent ) ) )
