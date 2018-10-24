@@ -27,3 +27,4 @@
 (package! clang-format)
 
 (package! org-attach-screenshot)
+(package! deadgrep)

@@ -115,6 +115,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.xml" . web-mode))
 
-(when IS-MAC (load! "+mac"))
+;; do not use company-ispell as backend, too much noise most of the time
+(set-company-backend! 'text-mode '(company-capf company-yasnippet))
+
+(require 'deadgrep)
 
 (toggle-frame-maximized)
