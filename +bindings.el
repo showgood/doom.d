@@ -29,8 +29,13 @@
  "bk" '(doom/kill-this-buffer-in-all-windows :which-key "kill buffer")
  "bs" '(doom/open-scratch-buffer :which-key "open scratch")
  "bt" '(me/switch-to-workspace-term :which-key "open project terminal")
+ "bm" '(me/open-message-buffer :which-key "open message buffer")
 
- "e" '(:ignore t :which-key "Errors")
+ "e" '(:ignore t :which-key "Errors/Emacs")
+ "ee" '(+default/find-in-config :which-key "find-in-my-private-config")
+ "eE" '(+default/browse-config :which-key "browse my private config")
+ "ed" '(+default/find-in-emacsd :which-key "find-in-emacsd")
+ "eD" '(+default/browse-emacsd :which-key "browse emacsd")
  "el" '(flycheck-list-errors :which-key "List errors")
  "en" '(next-error :which-key "next errors")
  "ep" '(previous-error :which-key "next errors")
@@ -40,8 +45,8 @@
  "fe" '(me/open-module-init :which-key "open config.el for my module")
  "ff" '(counsel-find-file :which-key "find file")
  "fj" '(dired-jump :which-key "dired jump")
- "fn" '(cp-filename-of-current-buffer :which-key "yank filename only")
- "fp" '(+default/yank-buffer-filename :which-key "yank file full path")
+ ;; TODO: add fn for just copy the filename
+ "fp" '(copy-file-name-to-clipboard :which-key "yank file full path")
  "fo" '(hydra-folding/body :which-key "hydra folding")
  "fr" '(counsel-recentf :which-key "recent file")
 
@@ -91,8 +96,8 @@
  "l TAB" '(doom/jump-to-last-workspace :which-key "toggle workspace")
 
  "n" '(:ignore t :which-key "Notes")
- "nn" '(+default/find-in-notes :which-key "showgood/find-in-notes")
- "nN" '(+default/browse-notes :which-key "browse-notes")
+ "nn" '(me/find-in-notes :which-key "find-in-notes")
+ "nN" '(me/browse-notes :which-key "browse-notes")
  ;; "nd" '(showgood/find-in-dotfiles :which-key "showgood/find-in-dotfiles")
  ;; "nD" '(showgood/browse-dotfiles :which-key "showgood/browse-in-dotfiles")
 
@@ -113,8 +118,10 @@
  "s" '(:ignore t :which-key "snippets / switch")
  "sn" '(yas-new-snippet :which-key "yas-new-snippet")
  "si" '(yas-insert-snippet :which-key "yas-insert-snippet")
- "sf" '(yas-visit-snippet-file :which-key "yas-visit-snippet-file")
- "sF" '(+default/find-in-snippets :which-key "find-in-snippets")
+ "ss" '(yas-visit-snippet-file :which-key "yas-visit-snippet-file")
+ "sS" '(+default/find-in-snippets :which-key "find-in-snippets")
+ "sf" '(+default/find-in-snippets :which-key "yas-new-snippet")
+ "sF" '(+default/browse-snippets :which-key "yas-new-snippet")
 
  "t"  '(:ignore t :which-key "toggle")
  ;; maybe I don't need this since we have treemacs now
