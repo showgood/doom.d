@@ -28,3 +28,5 @@
 
 (package! org-attach-screenshot)
 (package! deadgrep)
+(package! elpa-mirror)
+(package! json-snatcher)
