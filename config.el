@@ -120,4 +120,14 @@
 
 (require 'deadgrep)
 
+;; ONLY turn on this when local repository for package needs to be updated
+;; then run: M-x elpamr-create-mirror-for-installed
+(def-package! elpa-mirror
+  :config
+  (setq elpamr-default-output-directory "~/myelpa")
+)
+
+;; override printer to print json path in the way I want
+(setq jsons-path-printer 'me/jsons-print-path-as-list)
+
 (toggle-frame-maximized)
