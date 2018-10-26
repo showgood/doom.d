@@ -4,11 +4,17 @@
           ( lambda ()
             ( define-key python-mode-map ( kbd "RET" ) 'newline-and-indent ) ) )
 
+;; ensure:
+;;; pip install jedi
+;;  pip install flake8
+;;  pip install importmagic
+;;  pip install autopep8
+;;  pip install yapf
 (def-package! elpy
   :after python
   :config
   (elpy-enable)
-  (setq elpy-rpc-python-command "python")
+  (setq elpy-rpc-python-command "~/.pyenv/shims/python")
   ;; prevent elpy because too sluggish
   (setq eldoc-idle-delay 2)
 )

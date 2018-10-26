@@ -14,6 +14,12 @@
 ;; otherwise my keybindings won't work
 (push 'term +evil-collection-disabled-list)
 
+(defun evil-collection-term-char-mode-insert ()
+  "Switch to `term-char-mode' and enter insert state."
+  (interactive)
+  (term-char-mode)
+  (evil-insert-state))
+
 ;; (load! "+evil-term.el")
 ;; (require 'evil-term)
 
@@ -21,7 +27,7 @@
 :states 'normal
 :keymaps '(term-raw-map term-mode-map)
 "p" '(me/paste-in-term-mode :which-key "paste")
-"i" '(evil-insert-state :which-key "insert")
+"i" '(evil-collection-term-char-mode-insert :which-key "insert")
 "a" '(evil-insert-state :which-key "insert")
 "C-y" '(me/paste-in-term-mode :which-key "paste")
 "C-z" '(comint-clear-buffer :which-key "clear buffer")
@@ -31,11 +37,17 @@
 "C-l" '(evil-window-right :which-key "right window")
 )
 
+(defun me/back-to-term-normal ()
+  (interactive)
+  (term-line-mode)
+  (evil-normal-state)
+)
+
 (general-define-key
 :states '(insert emacs)
 :keymaps '(term-raw-map term-mode-map)
-"C-;" '(evil-normal-state :which-key "escape")
-"C-y" '(me/paste-in-term-mode :which-key "paste")
+"C-;" '(me/back-to-term-normal :which-key "escape")
+"C-y" '(term-paste :which-key "paste")
 "C-k" '(term-send-up :which-key "up")
 "C-j" '(term-send-down :which-key "<down>")
 "C-z" '(comint-clear-buffer :which-key "clear buffer")

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: csv file processing
+# key: csv
+# condition: t
+# --
+
+import csv
+
+with open(${1:csv_file}) as f:
+    reader = csv.DictReader(f)
+    $0

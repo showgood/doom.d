@@ -130,4 +130,11 @@
 ;; override printer to print json path in the way I want
 (setq jsons-path-printer 'me/jsons-print-path-as-list)
 
-(toggle-frame-maximized)
+(setenv "PATH"
+  (concat
+   (expand-file-name "~/.pyenv/shims")
+   ":" (getenv "PATH")
+  )
+)
+
+;; (toggle-frame-maximized)

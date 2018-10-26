@@ -27,7 +27,8 @@
 
 ;;;###autoload
 (defun me/new-workspace-term ()
-  "create a term-mode buffer which belongs to current workspace (persp-mode)"
+  "create a term-mode buffer which belongs to current workspace (persp-mode)
+   return the newly created buffer name"
   (interactive)
   (+term/open t)
   (let ( (term-name (format "%s-term" (+workspace-current-name)))
@@ -35,6 +36,7 @@
     (rename-buffer term-name t)
     (persp-add-buffer
       (current-buffer) (get-current-persp) t nil)
+    term-name
   )
 )
 
