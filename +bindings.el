@@ -480,6 +480,14 @@
 "l" '(org-store-link :which-key "org-store-link")
 )
 
+;; (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+(key-chord-define-global "aa" 'move-beginning-of-line)
+(key-chord-define-global ";;" 'move-end-of-line)
+(key-chord-define-global ";d" '+workspace/close-window-or-workspace)
+(key-chord-define-global ";f" 'counsel-find-file)
+(key-chord-define-global ";c" 'counsel-find-file)
+
+switch-to-previous-buffer
 ;; keyboard shortcuts
 ;; (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
 ;; (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-add-text-annotation)

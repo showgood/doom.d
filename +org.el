@@ -8,8 +8,8 @@
                            "~/org/Inbox.org" ))
 
  ;; https://emacs.stackexchange.com/questions/5889/how-to-highlight-text-permanently-in-org-mode
-(add-to-list 'org-emphasis-alist
-    '("*" (:emphasis t :foreground "red")))
+;; (add-to-list 'org-emphasis-alist
+;;     '("*" (:emphasis t :foreground "red")))
 
 ; Targets include this file and any file contributing to the agenda
 ; - up to 9 levels deep

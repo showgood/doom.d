@@ -21,6 +21,7 @@
 )
 
 (def-package! ox-reveal
+  :no-require t
   :config
   (setq org-reveal-root (format "file://%s/reveal.js" (substitute-in-file-name "$HOME"))
         org-reveal-title-slide nil )
@@ -44,8 +45,11 @@
   :demand t
 )
 
-(require 'anki-editor)
+(load! "site-lisp/key-chord.el")
+(require 'key-chord)
+(key-chord-mode 1)
 
+;; NOTE: make sure +bindings is loaded after `key-chord'
 (load! "+bindings")
 
 (setq evil-escape-key-sequence "jf")
@@ -97,13 +101,6 @@
 (evil-add-command-properties #'+jump/references :jump t)
 (evil-add-command-properties #'counsel-etags-find-tag-at-point :jump t)
 
-(load! "+term.el")
-(load! "+ivy.el")
-(load! "+workspace.el")
-(load! "+org.el")
-(load! "+lsp.el")
-(load! "+cc.el")
-
 ;; lsp-python is too slow for me.. back to elpy
 ;; (load! "+lsp-py.el")
 (load! "+elpy.el")
@@ -117,8 +114,6 @@
 
 ;; do not use company-ispell as backend, too much noise most of the time
 (set-company-backend! 'text-mode '(company-capf company-yasnippet))
-
-(require 'deadgrep)
 
 ;; ONLY turn on this when local repository for package needs to be updated
 ;; then run: M-x elpamr-create-mirror-for-installed
@@ -137,4 +132,49 @@
   )
 )
 
+(def-package! anki-editor
+  :no-require t)
+
+(def-package! keyfreq
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+)
+
+(def-package! deadgrep
+  :no-require t)
+
+(def-package! isend-mode
+  :no-require t)
+
+(def-package! powerthesaurus
+  :no-require t)
+
+(def-package! define-word
+  :no-require t)
+
+(def-package! vlf
+  :no-require t
+  :config
+  (require 'vlf-setup)
+)
+
+(def-package! engine-mode
+  :no-require t
+  :config
+  (engine-mode t)
+)
+
+(defengine github
+  "https://github.com/search?ref=simplesearch&q=%s")
+
+(defengine stack-overflow
+  "https://stackoverflow.com/search?q=%s")
 ;; (toggle-frame-maximized)
+
+(load! "+term.el")
+(load! "+ivy.el")
+(load! "+workspace.el")
+(load! "+org.el")
+(load! "+lsp.el")
+(load! "+cc.el")

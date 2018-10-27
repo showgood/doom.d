@@ -6,6 +6,8 @@
   (setq-local global-hl-line-mode nil)
   ;; (setq-local beacon-mode nil)
   (setq term-buffer-maximum-size 0)
+  (key-chord-define term-raw-map ",," 'me/back-to-term-normal)
+  (key-chord-define term-mode-map ",," 'me/back-to-term-normal)
 )
 
 (add-hook 'term-mode-hook #'setup-my-term-mode)
