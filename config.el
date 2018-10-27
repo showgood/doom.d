@@ -183,3 +183,9 @@
   :config
   (tiny-setup-default)
 )
+
+(def-package! super-save
+  :config
+  (super-save-mode +1)
+  (setq super-save-remote-files nil)
+)

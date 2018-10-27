@@ -39,3 +39,4 @@
 (package! vlf)
 (package! engine-mode)
 (package! tiny)
+(package! super-save)
