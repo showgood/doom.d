@@ -41,5 +41,7 @@
 (package! tiny)
 (package! super-save)
 
+(package! org-journal)
+
 ; mess up code too easily
 ; package: aggressive-indent-mode

@@ -46,8 +46,12 @@
 )
 
 (load! "site-lisp/key-chord.el")
-(require 'key-chord)
-(key-chord-mode 1)
+
+(def-package! key-chord
+  :config
+  (key-chord-mode 1)
+  ;; :disabled
+)
 
 ;; NOTE: make sure +bindings is loaded after `key-chord'
 (load! "+bindings")
@@ -194,3 +198,14 @@
 ; set scratch buffer default mode to org-mode
 (setq initial-major-mode 'org-mode)
 ;; (setq initial-scratch-message "hello world")
+
+
+;; https://www.reddit.com/r/emacs/comments/8kz8dv/tip_how_i_use_orgjournal_to_improve_my/
+(def-package! org-journal
+  ;; NOTE: :config won't work, need to use :custom
+  ;; https://github.com/bastibe/org-journal/issues/9
+  :custom
+    (org-journal-dir "~/org/journal/2018/")
+    (org-journal-file-format "%Y%m%d")
+    (org-journal-date-format "%e %b %Y (%A)")
+)

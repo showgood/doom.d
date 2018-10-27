@@ -21,6 +21,7 @@
  "a" '(:ignore t :which-key "applications")
  "ar" '(align-regexp :which-key "align-regexp")
  "at" '(+term/open :which-key "+term/open")
+ "aj" '(org-journal-new-entry :which-key "new org journal entry")
 
  "b" '(:ignore t :which-key "buffers")
  "bb" '(persp-switch-to-buffer :which-key "Switch workspace buffer")
