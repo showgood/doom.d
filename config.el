@@ -189,3 +189,8 @@
   (super-save-mode +1)
   (setq super-save-remote-files nil)
 )
+
+;; http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/
+; set scratch buffer default mode to org-mode
+(setq initial-major-mode 'org-mode)
+;; (setq initial-scratch-message "hello world")

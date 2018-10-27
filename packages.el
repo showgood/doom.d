@@ -40,3 +40,6 @@
 (package! engine-mode)
 (package! tiny)
 (package! super-save)
+
+; mess up code too easily
+; package: aggressive-indent-mode
