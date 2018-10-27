@@ -117,7 +117,7 @@
 (add-to-list 'auto-mode-alist '("\\.xml" . web-mode))
 
 ;; do not use company-ispell as backend, too much noise most of the time
-(set-company-backend! 'text-mode '(company-capf company-yasnippet))
+(set-company-backend! 'text-mode '(company-capf company-yasnippet company-dabbrev))
 
 ;; ONLY turn on this when local repository for package needs to be updated
 ;; then run: M-x elpamr-create-mirror-for-installed
@@ -199,7 +199,6 @@
 (setq initial-major-mode 'org-mode)
 ;; (setq initial-scratch-message "hello world")
 
-
 ;; https://www.reddit.com/r/emacs/comments/8kz8dv/tip_how_i_use_orgjournal_to_improve_my/
 (def-package! org-journal
   ;; NOTE: :config won't work, need to use :custom
@@ -208,4 +207,8 @@
     (org-journal-dir "~/org/journal/2018/")
     (org-journal-file-format "%Y%m%d")
     (org-journal-date-format "%e %b %Y (%A)")
+  ;; TODO: make company-dabbrev available globally
+  :config
+    (set-company-backend! 'org-journal-mode
+        '(company-capf company-yasnippet company-dabbrev))
 )

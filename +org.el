@@ -33,3 +33,5 @@
 )
 
 (when IS-MAC (require 'org-mac-link))
+
+(set-company-backend! 'org-mode '(company-dabbrev company-yasnippet company-capf))
