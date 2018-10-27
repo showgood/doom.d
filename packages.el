@@ -38,3 +38,4 @@
 ;; (package! poet-theme)
 (package! vlf)
 (package! engine-mode)
+(package! tiny)

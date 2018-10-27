@@ -178,3 +178,8 @@
 (load! "+org.el")
 (load! "+lsp.el")
 (load! "+cc.el")
+
+(def-package! tiny
+  :config
+  (tiny-setup-default)
+)
