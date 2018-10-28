@@ -50,7 +50,7 @@
 (def-package! key-chord
   :config
   (key-chord-mode 1)
-  ;; :disabled
+  :disabled
 )
 
 ;; NOTE: make sure +bindings is loaded after `key-chord'
@@ -216,6 +216,10 @@
 (load! "emacs-dayone2")
 
 (def-package! emacs-dayone2
+  :no-require t
+)
+
+(def-package! org-noter
   :no-require t
 )
 ;; (require 'outshine)
