@@ -33,5 +33,5 @@
 )
 
 (when IS-MAC (require 'org-mac-link))
-
+(require 'ox-gfm nil t)
 (set-company-backend! 'org-mode '(company-dabbrev company-yasnippet company-capf))

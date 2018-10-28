@@ -212,3 +212,10 @@
     (set-company-backend! 'org-journal-mode
         '(company-capf company-yasnippet company-dabbrev))
 )
+
+(load! "emacs-dayone2")
+
+(def-package! emacs-dayone2
+  :no-require t
+)
+;; (require 'outshine)

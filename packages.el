@@ -32,16 +32,20 @@
 (package! json-snatcher)
 (package! keyfreq)
 (package! isend-mode)
-(package! outshine)
 (package! powerthesaurus)
 (package! define-word)
-;; (package! poet-theme)
 (package! vlf)
 (package! engine-mode)
 (package! tiny)
 (package! super-save)
 
 (package! org-journal)
-
+(package! ox-gfm)
 ; mess up code too easily
 ; package: aggressive-indent-mode
+
+;; does not work well with doom emacs yet
+;; (package! poet-theme)
+
+;; not sure how useful it is
+;; (package! outshine)
