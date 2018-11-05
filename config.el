@@ -45,13 +45,13 @@
   :demand t
 )
 
-(load! "site-lisp/key-chord.el")
+;; (load! "site-lisp/key-chord.el")
 
-(def-package! key-chord
-  :config
-  (key-chord-mode 1)
-  :disabled
-)
+;; (def-package! key-chord
+;;   :config
+;;   (key-chord-mode 1)
+;;   :disabled
+;; )
 
 ;; NOTE: make sure +bindings is loaded after `key-chord'
 (load! "+bindings")
