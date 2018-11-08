@@ -481,6 +481,8 @@
 "l" '(org-store-link :which-key "org-store-link")
 )
 
+;; do not pollute the killring
+(global-set-key (kbd "M-<backspace>") 'backward-delete-word)
 ;; key-chord seems cause some slowness
 ;; (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 ;; (key-chord-define-global ";;" 'counsel-M-x)

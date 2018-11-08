@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: json string --> object
+# key: json_str
+# --
+
+import json
+
+${2:obj} = json.loads(${1:str})
+$0

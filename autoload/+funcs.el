@@ -114,3 +114,13 @@ Repeated invocations toggle between the two most recently open buffers."
     (when filename
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
+
+;;;###autoload
+;;;https://jblevins.org/log/clipboard
+;;; do not pollute the killring
+
+(defun backward-delete-word (arg)
+  "Delete characters backward until encountering the beginning of a word.
+With argument ARG, do this that many times."
+  (interactive "p")
+  (delete-region (point) (progn (backward-word arg) (point))))

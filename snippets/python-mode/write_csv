@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: write to csv file
+# key: write_csv
+# condition: t
+# --
+
+with open(${1:csv_file}, 'w') as f:
+    writer = csv.DictWriter(f, fieldnames=${2:records}[0].keys())
+    writer.writeheader()
+    map(writer.writerow, $2)

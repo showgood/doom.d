@@ -76,9 +76,9 @@
      )
 )
 
-;; set this so search is performed on all buffers,
+;; set this so search is performed on all buffers in all-frames
 ;; not just current buffer
-(setq avy-all-windows t)
+(setq avy-all-windows 'all-frames)
 
  ;; i want to switch window across frame
 (setq aw-scope 'global)
