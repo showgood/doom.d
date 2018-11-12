@@ -223,3 +223,15 @@
   :no-require t
 )
 ;; (require 'outshine)
+(def-package! wand
+  :config
+    (wand:add-rule-by-pattern :match "https?://"
+                            :capture :whole
+                            :action browse-url)
+
+    (wand:add-rule-by-pattern :match "file:"
+                          :capture :after
+                          :action find-file)
+    (global-set-key (kbd "<C-return>")       'wand:execute)
+    (global-set-key (kbd "<C-mouse-1>")      'wand:execute)
+)

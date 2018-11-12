@@ -42,6 +42,8 @@
 (package! org-journal)
 (package! ox-gfm)
 (package! org-noter)
+
+(package! wand)
 ; mess up code too easily
 ; package: aggressive-indent-mode
 
