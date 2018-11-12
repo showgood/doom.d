@@ -105,8 +105,8 @@ Repeated invocations toggle between the two most recently open buffers."
 
 ;;;###autoload
 ;;;http://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/
-(defun copy-file-name-to-clipboard ()
-  "Copy the current buffer file name to the clipboard."
+(defun copy-file-path-to-clipboard ()
+  "Copy the current buffer file full path to the clipboard."
   (interactive)
   (let ((filename (if (equal major-mode 'dired-mode)
                       default-directory
@@ -124,3 +124,12 @@ Repeated invocations toggle between the two most recently open buffers."
 With argument ARG, do this that many times."
   (interactive "p")
   (delete-region (point) (progn (backward-word arg) (point))))
+
+
+;;;###autoload
+(defun copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (kill-new (buffer-name))
+  (message "Copied file name '%s' to clipboard." (buffer-name))
+)

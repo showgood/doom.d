@@ -46,8 +46,8 @@
  "fe" '(me/open-module-init :which-key "open config.el for my module")
  "ff" '(counsel-find-file :which-key "find file")
  "fj" '(dired-jump :which-key "dired jump")
- ;; TODO: add fn for just copy the filename
- "fp" '(copy-file-name-to-clipboard :which-key "yank file full path")
+ "fn" '(copy-file-name-to-clipboard :which-key "yank file name")
+ "fp" '(copy-file-path-to-clipboard :which-key "yank file full path")
  "fo" '(hydra-folding/body :which-key "hydra folding")
  "fr" '(counsel-recentf :which-key "recent file")
 
@@ -483,6 +483,7 @@
 
 ;; do not pollute the killring
 (global-set-key (kbd "M-<backspace>") 'backward-delete-word)
+(global-set-key (kbd "C-<backspace>") 'backward-delete-word)
 ;; key-chord seems cause some slowness
 ;; (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 ;; (key-chord-define-global ";;" 'counsel-M-x)
