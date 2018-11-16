@@ -233,6 +233,4 @@
     (wand:add-rule-by-pattern :match "file:"
                           :capture :after
                           :action find-file)
-    (global-set-key (kbd "<C-return>")       'wand:execute)
-    (global-set-key (kbd "<C-mouse-1>")      'wand:execute)
 )
