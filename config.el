@@ -104,6 +104,7 @@
 (evil-add-command-properties #'+jump/definition :jump t)
 (evil-add-command-properties #'+jump/references :jump t)
 (evil-add-command-properties #'counsel-etags-find-tag-at-point :jump t)
+(evil-add-command-properties #'wand:execute :jump t)
 
 ;; lsp-python is too slow for me.. back to elpy
 ;; (load! "+lsp-py.el")

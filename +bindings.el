@@ -484,6 +484,13 @@
 ;; do not pollute the killring
 (global-set-key (kbd "M-<backspace>") 'backward-delete-word)
 (global-set-key (kbd "C-<backspace>") 'backward-delete-word)
+
+(general-define-key
+:states '(normal visual)
+:keymaps 'override
+"<C-return>" '(wand:execute :which-key "wand:execute")
+"<C-mouse-1>" '(wand:execute :which-key "wand:execute"))
+
 ;; key-chord seems cause some slowness
 ;; (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 ;; (key-chord-define-global ";;" 'counsel-M-x)
