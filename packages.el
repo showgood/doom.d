@@ -44,6 +44,9 @@
 (package! org-noter)
 
 (package! wand)
+
+(package! visual-regexp)
+(package! visual-regexp-steroids)
 ; mess up code too easily
 ; package: aggressive-indent-mode
 
