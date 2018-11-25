@@ -17,6 +17,8 @@
   (setq elpy-rpc-python-command "~/.pyenv/shims/python")
   ;; prevent elpy because too sluggish
   (setq eldoc-idle-delay 2)
+
+  (set-company-backend! 'python-mode '(elpy-company-backend company-dabbrev company-yasnippet))
 )
 
 ;; NOTE: do NOT set to jupyter, otherwise ob-ipython would break
