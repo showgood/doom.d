@@ -234,3 +234,5 @@
                           :capture :after
                           :action find-file)
 )
+
+(load! "+spell")
