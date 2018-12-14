@@ -236,3 +236,7 @@
 )
 
 (load! "+spell")
+
+(when (featurep! :tools pdf)
+    (load! "site-lisp/pdf-tools-org")
+    (require 'pdf-tools-org))
