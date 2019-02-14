@@ -251,3 +251,8 @@
 
 (load! "site-lisp/ob-diagrams")
 (setq ob-diagrams-cli-path "~/node_modules/.bin/diagrams")
+
+;; I prefer web-mode for xml and xsd file
+(with-eval-after-load "web-mode-autoloads"
+  (add-to-list 'auto-mode-alist '("\\.xsd\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.xml\\'" . web-mode)))
