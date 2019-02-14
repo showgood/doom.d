@@ -47,6 +47,8 @@
 
 (package! visual-regexp)
 (package! visual-regexp-steroids)
+
+(package! ox-hugo)
 ; mess up code too easily
 ; package: aggressive-indent-mode
 

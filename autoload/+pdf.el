@@ -1,5 +1,6 @@
 ;; https://gist.github.com/myrjola/15585e3461b4d3178953
 
+;;;###autoload
 (defun pdf-annot-markups-as-org-text (pdfpath &optional title level)
   "Acquire highlight annotations as text"
 

@@ -240,3 +240,14 @@
 (when (featurep! :tools pdf)
     (load! "site-lisp/pdf-tools-org")
     (require 'pdf-tools-org))
+
+(use-package ox-hugo
+  :config
+  (setq org-hugo-export-with-section-numbers t)
+  :after ox)
+
+(load! "site-lisp/ob-mermaid")
+(setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc")
+
+(load! "site-lisp/ob-diagrams")
+(setq ob-diagrams-cli-path "~/node_modules/.bin/diagrams")
