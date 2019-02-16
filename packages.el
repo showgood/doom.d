@@ -49,6 +49,8 @@
 (package! visual-regexp-steroids)
 
 (package! ox-hugo)
+
+(package! easy-hugo)
 ; mess up code too easily
 ; package: aggressive-indent-mode
 
@@ -57,3 +59,6 @@
 
 ;; not sure how useful it is
 ;; (package! outshine)
+
+;; not quite get it..
+;; (package! lentic)
