@@ -115,8 +115,6 @@
 ;;   (setq ivy-display-function #'ivy-posframe-display-at-point)
 ;; )
 
-(add-to-list 'auto-mode-alist '("\\.xml" . web-mode))
-
 ;; do not use company-ispell as backend, too much noise most of the time
 (set-company-backend! 'text-mode '(company-capf company-yasnippet company-dabbrev))
 
@@ -258,7 +256,6 @@
   (setq org-hugo-export-with-section-numbers nil)
   :after ox)
 
-;(def-package! helm-ag)
 ;; https://github.com/cescoferraro/dotfiles/blob/master/src/emacs.d/configuration.org#hugo
 (defun cesco/easy-hugo ()
   (interactive)
