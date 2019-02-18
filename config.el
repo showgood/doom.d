@@ -80,8 +80,8 @@
 ;; not just current buffer
 (setq avy-all-windows 'all-frames)
 
- ;; i want to switch window across frame
-(setq aw-scope 'global)
+;; i want to switch window across frame
+;; (setq aw-scope 'global)
 
 ;; allow to select from kill-ring history while in minibuffer
 (setq enable-recursive-minibuffers t)
@@ -289,3 +289,6 @@
 ;; otherwise will trigger error:
 ;; Listing directory failed but 'access-file' worked
 (setq dired-listing-switches "-aBhl")
+
+;; (setq counsel-grep-base-command
+;;  "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
