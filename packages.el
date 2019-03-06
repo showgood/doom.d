@@ -12,24 +12,8 @@
 (package! dash-at-point)
 (package! feature-mode)
 
-(package! anki-editor)
-
-(package! lsp-mode)
-(package! lsp-ui)
-(package! company-lsp)
-
-;; for some reason, editing is really slow
-;; for python with lsp mode, so back to elpy
-;; (package! lsp-python)
-(package! elpy)
-
-(package! ccls)
-(package! clang-format)
-
-(package! org-attach-screenshot)
 (package! deadgrep)
 (package! elpa-mirror)
-(package! json-snatcher)
 (package! keyfreq)
 (package! isend-mode)
 (package! powerthesaurus)
@@ -39,18 +23,11 @@
 (package! tiny)
 (package! super-save)
 
-(package! org-journal)
-(package! ox-gfm)
-(package! org-noter)
-
 (package! wand)
 
 (package! visual-regexp)
 (package! visual-regexp-steroids)
 
-(package! ox-hugo)
-
-(package! easy-hugo)
 ; mess up code too easily
 ; package: aggressive-indent-mode
 

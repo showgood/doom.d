@@ -68,11 +68,6 @@
         )
       line)))
 
-(def-package! clang-format
-  :config
-  (setq clang-format-style-option "llvm")
-)
-
 (defun +ccls//enable ()
   (condition-case nil
       (lsp-ccls-enable)

@@ -20,13 +20,6 @@
     (hl-highlight-mode)
 )
 
-(def-package! ox-reveal
-  :no-require t
-  :config
-  (setq org-reveal-root (format "file://%s/reveal.js" (substitute-in-file-name "$HOME"))
-        org-reveal-title-slide nil )
-)
-
 (def-package! tldr
   :commands (tldr)
   :config
@@ -45,18 +38,8 @@
   :demand t
 )
 
-;; (load! "site-lisp/key-chord.el")
-
-;; (def-package! key-chord
-;;   :config
-;;   (key-chord-mode 1)
-;;   :disabled
-;; )
-
-;; NOTE: make sure +bindings is loaded after `key-chord'
 (load! "+bindings")
 
-(setq evil-escape-key-sequence "jf")
 (setq +org-dir (concat (substitute-in-file-name "$HOME/") "org"))
 (setq +notes-dir (concat (substitute-in-file-name "$HOME/") "notes"))
 (defvar my-snippets-dir (expand-file-name "snippets/" doom-private-dir))
@@ -76,25 +59,20 @@
      )
 )
 
-;; set this so search is performed on all buffers in all-frames
-;; not just current buffer
-(setq avy-all-windows 'all-frames)
-
-;; i want to switch window across frame
-;; (setq aw-scope 'global)
-
-;; allow to select from kill-ring history while in minibuffer
-(setq enable-recursive-minibuffers t)
-
 ;; disable it since it seems caused some undesired side effect
 ;; (setq auto-revert-tail-mode nil)
 
-; proper line wrapping
-(global-visual-line-mode 1)
+; it causes issue for magit
+; (global-visual-line-mode 1)
 
 (setq dired-recursive-deletes 'always)
 ;; try suggesting dired targets
 (setq dired-dwim-target t)
+
+;; do NOT put --group-directories-first
+;; otherwise will trigger error:
+;; Listing directory failed but 'access-file' worked
+(setq dired-listing-switches "-aBhl")
 
 ;; https://emacsbliss.com/annoyance-with-paste-in-evil-visual-mode/
 (setq evil-kill-on-visual-paste nil)
@@ -106,15 +84,6 @@
 (evil-add-command-properties #'counsel-etags-find-tag-at-point :jump t)
 (evil-add-command-properties #'wand:execute :jump t)
 
-;; lsp-python is too slow for me.. back to elpy
-;; (load! "+lsp-py.el")
-(load! "+elpy.el")
-
-;; not working..not sure why..
-;; (after! ivy-posframe
-;;   (setq ivy-display-function #'ivy-posframe-display-at-point)
-;; )
-
 ;; do not use company-ispell as backend, too much noise most of the time
 (set-company-backend! 'text-mode '(company-capf company-yasnippet company-dabbrev))
 
@@ -125,18 +94,12 @@
   (setq elpamr-default-output-directory "~/myelpa")
 )
 
-;; override printer to print json path in the way I want
-(setq jsons-path-printer 'me/jsons-print-path-as-list)
-
 (setenv "PATH"
   (concat
    (expand-file-name "~/.pyenv/shims")
    ":" (getenv "PATH")
   )
 )
-
-(def-package! anki-editor
-  :no-require t)
 
 (def-package! keyfreq
   :config
@@ -175,12 +138,7 @@
   "https://stackoverflow.com/search?q=%s")
 ;; (toggle-frame-maximized)
 
-(load! "+term.el")
 (load! "+ivy.el")
-(load! "+workspace.el")
-(load! "+org.el")
-(load! "+lsp.el")
-(load! "+cc.el")
 
 (def-package! tiny
   :config
@@ -198,30 +156,6 @@
 (setq initial-major-mode 'org-mode)
 ;; (setq initial-scratch-message "hello world")
 
-;; https://www.reddit.com/r/emacs/comments/8kz8dv/tip_how_i_use_orgjournal_to_improve_my/
-(def-package! org-journal
-  ;; NOTE: :config won't work, need to use :custom
-  ;; https://github.com/bastibe/org-journal/issues/9
-  :custom
-    (org-journal-dir "~/org/journal/2018/")
-    (org-journal-file-format "%Y%m%d")
-    (org-journal-date-format "%e %b %Y (%A)")
-  ;; TODO: make company-dabbrev available globally
-  :config
-    (set-company-backend! 'org-journal-mode
-        '(company-capf company-yasnippet company-dabbrev))
-)
-
-(load! "emacs-dayone2")
-
-(def-package! emacs-dayone2
-  :no-require t
-)
-
-(def-package! org-noter
-  :no-require t
-)
-;; (require 'outshine)
 (def-package! wand
   :config
     (wand:add-rule-by-pattern :match "https?://"
@@ -233,62 +167,11 @@
                           :action find-file)
 )
 
-(load! "+spell")
-
-(when (featurep! :tools pdf)
-    (load! "site-lisp/pdf-tools-org")
-    (require 'pdf-tools-org))
-
-
-(load! "site-lisp/ob-mermaid")
-(setq ob-mermaid-cli-path "~/node_modules/.bin/mmdc")
-
-(load! "site-lisp/ob-diagrams")
-(setq ob-diagrams-cli-path "~/node_modules/.bin/diagrams")
-
 ;; I prefer web-mode for xml and xsd file
 (with-eval-after-load "web-mode-autoloads"
   (add-to-list 'auto-mode-alist '("\\.xsd\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.xml\\'" . web-mode)))
 
-(def-package! ox-hugo
-  :config
-  (setq org-hugo-export-with-section-numbers nil)
-  :after ox)
-
-;; https://github.com/cescoferraro/dotfiles/blob/master/src/emacs.d/configuration.org#hugo
-(defun cesco/easy-hugo ()
-  (interactive)
-  (evil-define-key
-    (list 'normal 'insert 'visual 'motion)
-    easy-hugo-mode-map
-    "n" 'easy-hugo-newpost
-    "D" 'easy-hugo-article
-    "p" 'easy-hugo-preview
-    "P" 'easy-hugo-publish
-    "o" 'easy-hugo-open
-    "d" 'easy-hugo-delete
-    "e" 'easy-hugo-open
-    "c" 'easy-hugo-open-config
-    "f" 'easy-hugo-open
-    "N" 'easy-hugo-no-help
-    "v" 'easy-hugo-view
-    "r" 'easy-hugo-refresh
-    "g" 'easy-hugo-refresh
-    "s" 'easy-hugo-sort-time
-    "S" 'easy-hugo-sort-char
-    "G" 'easy-hugo-github-deploy
-    "A" 'easy-hugo-amazon-s3-deploy
-    "C" 'easy-hugo-google-cloud-storage-deploy
-    "q" 'evil-delete-buffer
-    (kbd "TAB") 'easy-hugo-open
-    (kbd "RET") 'easy-hugo-preview)
-  (define-key global-map (kbd "C-c C-e") 'easy/hugo))
-
-;; do NOT put --group-directories-first
-;; otherwise will trigger error:
-;; Listing directory failed but 'access-file' worked
-(setq dired-listing-switches "-aBhl")
 
 ;; (setq counsel-grep-base-command
 ;;  "rg -i -M 120 --no-heading --line-number --color never '%s' %s")

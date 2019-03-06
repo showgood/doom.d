@@ -146,6 +146,22 @@
        :collab
        ;;floobits          ; peer programming for a price
        ;;impatient-mode    ; show off code over HTTP
+       :my
+        anki
+        blog
+        cc
+        ccls
+        data
+        elpy
+        git
+        lsp
+        lsp-py
+        mac
+        org
+        pdf
+        spell
+        term
+        workspace
 
        :config
        ;; For literate config users. This will tangle+compile a config.org
