@@ -60,16 +60,16 @@
 
        :tools
        ;;ansible
-       docker
+       ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        flycheck          ; tasing you for every semicolon you forget
-       flyspell          ; tasing you for misspelling mispelling
+       ;;flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
-       ;;lsp
-       ;;macos             ; MacOS-specific commands
+       lsp
+       macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
-       make              ; run make tasks from Emacs
+       ;;make              ; run make tasks from Emacs
        ;;password-store    ; password manager for nerds
        ;;pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
@@ -82,7 +82,7 @@
 
        :lang
        ;;assembly          ; assembly for fun or debugging
-       ;;(cc +irony +rtags); C/C++/Obj-C madness
+       (cc +irony +rtags); C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -99,11 +99,11 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
-       lua               ; one-based indices? one-based indices
+       ;;lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
@@ -112,7 +112,8 @@
         +attach          ; custom attachment system
         +babel           ; running code in org
         +capture         ; org-capture in and outside of Emacs
-        +export          ; Exporting org to whatever you want
+        ; pandoc produces noise
+        ;+export          ; Exporting org to whatever you want
         +present)        ; Emacs for presentations
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
@@ -146,6 +147,17 @@
        :collab
        ;;floobits          ; peer programming for a price
        ;;impatient-mode    ; show off code over HTTP
+
+       :my
+       data
+       anki
+       ccls
+       git
+       term
+       workspace
+       org
+       blog
+       elpy
 
        :config
        ;; For literate config users. This will tangle+compile a config.org

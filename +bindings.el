@@ -248,6 +248,7 @@
  ;; gk - evil-previous-visual-line
 
  ;; gl
+ ;; "gl" '(delete-other-windows :which-key "maximize current buffer")
 
  "gm" '(delete-other-windows :which-key "maximize current buffer")
  "gM" '(winner-undo :which-key "restore previous window layout")
