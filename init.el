@@ -159,6 +159,7 @@
        org
        blog
        elpy
+       cc
 
        :config
        ;; For literate config users. This will tangle+compile a config.org
