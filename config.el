@@ -126,7 +126,7 @@
   :config
   (engine-mode t)
   ;; this is not working
-  ;; (setq engine/keybinding-prefix "gl")
+  ;; (setq engine/keybinding-prefix (kbd "gl"))
 )
 
 (defengine google
@@ -144,3 +144,11 @@
   (super-save-mode +1)
   (setq super-save-remote-files nil)
 )
+
+;; I don't like typing space to enable fuzzy search
+;; too much interruption
+;; https://oremacs.com/2016/01/06/ivy-flx/
+;; update: can't use this, cause too much noise in rg search
+;; (setq ivy-re-builders-alist
+;;       '((ivy-switch-buffer . ivy--regex-plus)
+;;         (t . ivy--regex-fuzzy)))

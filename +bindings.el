@@ -20,6 +20,8 @@
 
  "a" '(:ignore t :which-key "applications")
  "ar" '(align-regexp :which-key "align-regexp")
+ "ac" '(avy-copy-line :which-key "avy-copy-line")
+ "av" '(avy-copy-region :which-key "avy-copy-region")
  "at" '(+term/open :which-key "+term/open")
  "aj" '(org-journal-new-entry :which-key "new org journal entry")
 
