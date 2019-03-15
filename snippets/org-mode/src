@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: src
-# key: src
-# --
-#+BEGIN_SRC ${1:language}
-`(get-kill-ring)`
-#+END_SRC
-$0
