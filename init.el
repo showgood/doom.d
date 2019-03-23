@@ -104,14 +104,14 @@
        ;;julia             ; a better, faster MATLAB
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
-       ;;lua               ; one-based indices? one-based indices
+       lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org              ; organize your plain life in plain text
         +attach          ; custom attachment system
-        +babel           ; running code in org
+        ;; +babel           ; running code in org
         +capture         ; org-capture in and outside of Emacs
         ; pandoc produces noise
         ;+export          ; Exporting org to whatever you want
@@ -160,6 +160,7 @@
        blog
        elpy
        cc
+       diff
 
        :config
        ;; For literate config users. This will tangle+compile a config.org
