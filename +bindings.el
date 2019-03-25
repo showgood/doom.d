@@ -280,8 +280,6 @@
  "gx" '(evil-exchange :which-key "evil exchange")
  ;; gy - evil-commentary-yank
  ;; "gz" '(+eval:replace-region :which-key "replace region with eval result")
- "g-" '(+evil:narrow-buffer :which-key "narrow buffer")
- "g=" '(widen :which-key "widen")
 )
 
 (general-define-key
@@ -482,6 +480,12 @@
 :keymaps 'org-mode-map
 :prefix "C-c"
 "l" '(org-store-link :which-key "org-store-link")
+)
+
+(general-define-key
+:states '(normal)
+:keymaps 'org-mode-map
+"gi" '(counsel-org-goto :which-key "counsel-org-goto")
 )
 
 ;; do not pollute the killring
