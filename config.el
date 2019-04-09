@@ -152,3 +152,10 @@
 ;; (setq ivy-re-builders-alist
 ;;       '((ivy-switch-buffer . ivy--regex-plus)
 ;;         (t . ivy--regex-fuzzy)))
+
+;; can not put :defer t for this one
+(def-package! feature-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+)
+
