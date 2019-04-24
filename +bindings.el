@@ -303,6 +303,7 @@
  :keymaps 'c++-mode-map
  "d" '(xref-find-definitions :which-key "find definition")
  "r" '(ccls/callers :which-key "find references")
+ "f" '(clang-format-buffer :which-key "clang-format")
  )
 
 (general-define-key
@@ -319,6 +320,7 @@
  :states '(normal)
  :keymaps 'json-mode-map
  "xp" '(jsons-print-path :which-key "xpath")
+ "f" '(json-pretty-print-buffer :which-key "pretty print buffer")
  )
 
 (general-define-key
