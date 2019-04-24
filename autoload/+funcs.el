@@ -80,3 +80,40 @@ With argument ARG, do this that many times."
   (kill-new (buffer-name))
   (message "Copied file name '%s' to clipboard." (buffer-name))
 )
+
+;;;###autoload
+;; http://blog.binchen.org/posts/convert-multiple-line-into-one-big-string-in-emacs.html
+(defun strip-convert-lines-into-one-big-string (beg end)
+"strip and convert selected lines into one big string which is copied into kill ring.
+When transient-mark-mode is enabled, if no region is active then only the
+current line is acted upon.
+
+If the region begins or ends in the middle of a line, that entire line is
+copied, even if the region is narrowed to the middle of a line.
+
+Current position is preserved."
+  (interactive "r")
+  (let (str (orig-pos (point-marker)))
+  (save-restriction
+    (widen)
+    (when (and transient-mark-mode (not (use-region-p)))
+      (setq beg (line-beginning-position)
+            end (line-beginning-position 2)))
+
+    (goto-char beg)
+    (setq beg (line-beginning-position))
+    (goto-char end)
+    (unless (= (point) (line-beginning-position))
+      (setq end (line-beginning-position 2)))
+
+    (goto-char beg)
+    (setq str (replace-regexp-in-string "[ \t]*\n" "" (replace-regexp-in-string "^[ \t]+" "" (buffer-substring-no-properties beg end))))
+    ;; (message "str=%s" str)
+    (kill-new str)
+    (goto-char orig-pos)))
+  )
+
+;;;###autoload
+(defun get-kill-ring()
+  (substring-no-properties (car kill-ring))
+)
