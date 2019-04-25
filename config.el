@@ -159,3 +159,6 @@
   (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 )
 
+(def-package! eacl
+  :defer t
+)

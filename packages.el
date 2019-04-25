@@ -18,6 +18,7 @@
 (package! vlf)
 (package! super-save)
 (package! feature-mode)
+(package! eacl)
 
 ;; (package! visual-regexp)
 ;; (package! visual-regexp-steroids)
