@@ -210,6 +210,7 @@
  "M-/" '(dabbrev-expand :which-key "hippie expand")
  "C-c <left>" '(winner-undo :which-key "winner undo")
  "C-c <right>" '(winner-redo :which-key "winner redo")
+ "C-c c" '(org-capture :which-key "org capture")
 
  "<f2>" '(org-clock-goto :which-key "org-clock-goto")
  "<f3>" '(org-clock-in :which-key "org-clock-in")
