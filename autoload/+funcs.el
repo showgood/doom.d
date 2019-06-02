@@ -117,3 +117,86 @@ Current position is preserved."
 (defun get-kill-ring()
   (substring-no-properties (car kill-ring))
 )
+
+;;;###autoload
+(defun my-format-date (date)
+  "convert a date in string `2019-05-30' to `30 May 2019 (Thursday)'"
+  (let* ((time (parse-time-string date))
+         (day (nth 3 time))
+         (month (nth 4 time))
+         (year (nth 5 time)))
+    (format-time-string "%d %b %Y (%A)"
+      (encode-time 0 0 0 day month year))))
+
+;;;###autoload
+(defun xah-clean-empty-lines ()
+  "Replace repeated blank lines to just 1.
+Works on whole buffer or text selection, respects `narrow-to-region'.
+
+URL `http://ergoemacs.org/emacs/elisp_compact_empty_lines.html'
+Version 2017-09-22"
+  (interactive)
+  (let ($begin $end)
+    (if (region-active-p)
+        (setq $begin (region-beginning) $end (region-end))
+      (setq $begin (point-min) $end (point-max)))
+    (save-excursion
+      (save-restriction
+        (narrow-to-region $begin $end)
+        (progn
+          (goto-char (point-min))
+          (while (re-search-forward "\n\n\n+" nil "move")
+            (replace-match "\n\n")))))))
+
+
+;;;###autoload
+(defun me/trunknotes-to-org-journal(file)
+  "export trunknotes markdown file from `file' argument to org-journal file"
+
+(interactive)
+
+(message "process file: %s" file)
+
+(with-temp-buffer file
+  (insert-file-contents file)
+  (xah-clean-empty-lines)
+
+  (let* ((case-fold-search t)
+        (working-dir (file-name-directory file))
+        (input-file-name (file-name-nondirectory file))
+        (ext (file-name-extension input-file-name))
+        (date (replace-regexp-in-string (concat "." ext) "" input-file-name))
+        (target-file-path (concat working-dir date ".org"))
+        (time-pattern "^= *\\(.*\\) *=")
+        (time nil)
+        (hour nil)
+        (minute nil))
+
+    (unless (file-exists-p target-file-path)
+      (write-region (format "*  %s\n" (my-format-date date)) nil target-file-path)
+    )
+    (goto-char (point-min))
+    (while (search-forward-regexp time-pattern nil t)
+
+      (when (match-string 0)
+        (setq time (match-string 1)))
+      (setq hour (substring time 0 2))
+      (setq minute (substring time 2 4))
+
+      (replace-match (format "** %s:%s" hour minute)))
+      (append-to-file (point-min) (point-max) target-file-path)
+  )))
+
+;;;###autoload
+(defun me/export-current-trunknote-file-to-org-journal ()
+  "export current trunknote markdown file to org-journal file"
+  (interactive)
+
+  (me/trunknotes-to-org-journal (expand-file-name (buffer-file-name))))
+
+;;;###autoload
+(defun me/export-trunknotes-dir-to-org-journal (dir)
+  "export all trunknotes markdown files at dir `dir' to org-journal"
+  (interactive)
+  (require 'find-lisp)
+  (mapc 'me/trunknotes-to-org-journal (find-lisp-find-files dir "\\.markdown$")))
