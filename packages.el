@@ -20,6 +20,8 @@
 (package! feature-mode)
 (package! eacl)
 
+(package! org-jira)
+(package! org-brain)
 ;; (package! visual-regexp)
 ;; (package! visual-regexp-steroids)
 

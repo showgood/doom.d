@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: example block
-# key: <ek
+# key: ek
 # --
 #+BEGIN_EXAMPLE
-`(get-kill-ring)`
+`yas-selected-text`
 #+END_EXAMPLE
 $0
