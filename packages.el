@@ -1,20 +1,13 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; ~/.doom.d/packages.el
 
-;;; Examples:
-;; (package! some-package)
-;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
-;; (package! builtin-package :disable t)
+(package! bookmark+ :recipe (:host github :repo "showgood/bookmark-plus"))
 
-(package! bookmark+)
 (package! hl-anything)
 (package! tldr)
 (package! dash-at-point)
 (package! deadgrep)
-(package! wand)
 (package! tiny)
-(package! engine-mode)
-
 (package! vlf)
 (package! super-save)
 (package! feature-mode)
@@ -22,9 +15,12 @@
 
 (package! org-jira)
 (package! org-brain)
+
+
+;; (package! engine-mode)
+;; (package! wand)
 ;; (package! visual-regexp)
 ;; (package! visual-regexp-steroids)
-
 
 ;; (package! keyfreq)
 ;;

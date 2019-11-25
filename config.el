@@ -11,34 +11,30 @@
 (setq company-idle-delay 0.2
       company-minimum-prefix-length 3)
 
-(def-package! general
-  :demand t
-  :config
-  (general-evil-setup t)
-  (general-override-mode)
-)
+;(load! "+bindings")
+(load! "+evil-bindings.el")
 
-(load! "+bindings")
+(setq evil-escape-key-sequence "jf")
 
 ;; NOTE: this needs to happen before require the bookmark+ package
 (setq bookmark-default-file (expand-file-name "~/bookmarks"))
 
-(def-package! bookmark+
-  :demand t
+(use-package! bookmark+
+ :demand t
 )
 
-(def-package! hl-anything
+(use-package! hl-anything
   :defer t
   :config
     (hl-highlight-mode)
 )
 
-(def-package! dash-at-point
+(use-package! dash-at-point
   :defer t
   :commands dash-at-point
 )
 
-(def-package! tldr
+(use-package! tldr
   :defer t
   :commands (tldr)
   :config
@@ -67,28 +63,28 @@
 ;; do not use company-ispell as backend, too much noise most of the time
 ;; (set-company-backend! 'text-mode '(company-capf company-yasnippet company-dabbrev))
 
-(def-package! deadgrep
+(use-package! deadgrep
   :defer t)
 
-(def-package! tiny
+(use-package! tiny
   :defer t
   :config
   (tiny-setup-default)
 )
 
 ;; wand can't have :defer t
-(def-package! wand
-  :config
-    (wand:add-rule-by-pattern :match "https?://"
-                            :capture :whole
-                            :action browse-url)
+;; (use-package! wand
+;;  :config
+;;    (wand:add-rule-by-pattern :match "https?://"
+;;                            :capture :whole
+;;                            :action browse-url)
 
-    (wand:add-rule-by-pattern :match "file:"
-                          :capture :after
-                          :action find-file)
-)
+;;    (wand:add-rule-by-pattern :match "file:"
+;;                          :capture :after
+;;                          :action find-file)
+;; )
 
-(def-package! elpa-mirror
+(use-package! elpa-mirror
   :defer t
   :config
   (setq elpamr-default-output-directory "~/myelpa")
@@ -121,25 +117,25 @@
      )
 )
 
-(def-package! engine-mode
-  :defer t
-  :config
-  (engine-mode t)
-  ;; this is not working
-  ;; (setq engine/keybinding-prefix (kbd "gl"))
-)
+;; (use-package! engine-mode
+;;   :defer t
+;;   :config
+;;   (engine-mode t)
+;;   ;; this is not working
+;;   ;; (setq engine/keybinding-prefix (kbd "gl"))
+;; )
 
-(defengine google
-  "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-  :keybinding "g")
+;; (defengine google
+;;   "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+;;   :keybinding "g")
 
-(def-package! vlf
+(use-package! vlf
   :defer t
   :config
   (require 'vlf-setup)
 )
 
-(def-package! super-save
+(use-package! super-save
   :config
   (super-save-mode +1)
   (setq super-save-remote-files nil)
@@ -154,16 +150,16 @@
 ;;         (t . ivy--regex-fuzzy)))
 
 ;; can not put :defer t for this one
-(def-package! feature-mode
+(use-package! feature-mode
   :config
   (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 )
 
-(def-package! eacl
+(use-package! eacl
   :defer t
 )
 
-(def-package! org-brain
+(use-package! org-brain
   :defer t
   :init
   ;; For Evil users
