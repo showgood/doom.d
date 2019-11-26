@@ -352,7 +352,7 @@
       :desc "window"                "w"    evil-window-map
       :desc "help"                  "h"    help-map
 
-      :desc "rg"                    "/"    #'+default/search-project-for-symbol-at-point
+      :desc "rg"                    "/"    #'counsel-rg
       :desc "M-x"                   "SPC"  #'counsel-M-x
       :desc "jump char 2"           "k"    #'evil-avy-goto-char-2
 
