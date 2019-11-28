@@ -117,18 +117,6 @@
      )
 )
 
-;; (use-package! engine-mode
-;;   :defer t
-;;   :config
-;;   (engine-mode t)
-;;   ;; this is not working
-;;   ;; (setq engine/keybinding-prefix (kbd "gl"))
-;; )
-
-;; (defengine google
-;;   "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-;;   :keybinding "g")
-
 (use-package! vlf
   :defer t
   :config
@@ -173,3 +161,14 @@
         org-capture-templates)
   (setq org-brain-visualize-default-choices 'all)
   (setq org-brain-title-max-length 12))
+
+(use-package! company-tabnine
+  :defer t
+  :config
+  (setq company-idle-delay 0)
+  ;; Number the candidates (use M-1, M-2 etc to select completions).
+  (setq company-show-numbers t))
+
+(after! (:any js2-mode rjsx-mode web-mode)
+    (set-company-backend! 'js2-mode
+    'company-tabnine))

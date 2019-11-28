@@ -16,6 +16,7 @@
 (package! org-jira)
 (package! org-brain)
 
+(package! company-tabnine)
 
 ;; (package! engine-mode)
 ;; (package! wand)
