@@ -172,3 +172,16 @@
 (after! (:any js2-mode rjsx-mode web-mode)
     (set-company-backend! 'js2-mode
     'company-tabnine))
+
+(add-hook! 'lsp-mode-hook
+  (defun me/lsp-keybinding()
+    (map!
+      :n ",c" #'flycheck-list-errors
+      :n ",C" #'lsp-ui-flycheck-list
+      :n ",d" #'lsp-find-definition
+      :n ",r" #'lsp-find-references
+      :n ",R" #'lsp-rename
+      :n ",f" #'lsp-format-buffer
+      :n ",D" #'lsp-describe-thing-at-point
+      :v ",f" #'lsp-format-region)
+  ))

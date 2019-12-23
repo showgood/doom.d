@@ -17,7 +17,7 @@
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy               ; a search engine for love and life
-        ;; +childframe    ; disable it, feel too weird
+        +childframe    ; disable it, feel too weird
         +icons
         +prescient)
 
@@ -103,7 +103,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
-       ;;cc                ; C/C++/Obj-C madness
+       ;; (cc +lsp)           ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -144,8 +144,8 @@
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       ;; (python            ; beautiful is better than ugly
-       ;;  +lsp)
+       (python            ; beautiful is better than ugly
+        +lsp)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
@@ -168,14 +168,14 @@
        :my
        data
        anki
-       ccls
+       ;; ccls
        git
        term
        workspace
        org
        blog
-       elpy
-       cc
+       ;; elpy
+       (cc +lsp)
        diff
        python
        pdf
@@ -196,7 +196,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(bmkp-last-as-first-bookmark-file "~/bookmarks"))
+ '(bmkp-last-as-first-bookmark-file "~/bookmarks")
+ '(org-journal-date-format "%e %b %Y (%A)" t)
+ '(org-journal-dir "~/org/journal/2019/" t)
+ '(org-journal-file-format "%Y-%m-%d.journal" t)
+ '(safe-local-variable-values (quote ((ssh-deploy-on-explicit-save . 1)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

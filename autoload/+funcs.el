@@ -200,3 +200,27 @@ Version 2017-09-22"
   (interactive)
   (require 'find-lisp)
   (mapc 'me/trunknotes-to-org-journal (find-lisp-find-files dir "\\.markdown$")))
+
+;;;###autoload
+(defun me/join-string-with-comma (str)
+  (mapconcat (lambda (x) (format "'%s'" x)) (split-string str " " t) ",")
+)
+
+;;;###autoload
+(defun jk-org-kwds ()
+  "parse the buffer and return a cons list of (property . value)
+from lines like:
+#+PROPERTY: value"
+  (org-element-map (org-element-parse-buffer 'element) 'keyword
+                   (lambda (keyword) (cons (org-element-property :key keyword)
+                                           (org-element-property :value keyword)))))
+
+;;;###autoload
+(defun jk-org-kwd (KEYWORD)
+  "get the value of a KEYWORD in the form of #+KEYWORD: value"
+  (cdr (assoc KEYWORD (jk-org-kwds))))
+
+;;;###autoload
+(defun buffer-string* (buffer)
+  (with-current-buffer buffer
+    (buffer-string)))

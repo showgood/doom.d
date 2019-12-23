@@ -17,6 +17,7 @@
 (package! org-brain)
 
 (package! company-tabnine)
+(package! restclient)
 
 ;; (package! engine-mode)
 ;; (package! wand)
@@ -24,7 +25,6 @@
 ;; (package! visual-regexp-steroids)
 
 ;; (package! keyfreq)
-;;
 ;;
 ;; google-translate is more useful
 ;;(package! define-word)

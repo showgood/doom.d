@@ -281,6 +281,7 @@
   ;; gj - evil-next-visual-line
   ;; gk - evil-previous-visual-line
   ;; gl - available
+  :nv "gl" #'+workspace/switch-to
   :desc "maximize current buffer" :nv "gm" #'delete-other-windows
   :desc "restore previous window layout" :nv "gM" #'winner-undo
   ;; gn - evil-next-match
@@ -784,18 +785,13 @@
   :nv  ",D" #'dash-at-point
   :nv  ",+" #'evil-numbers/inc-at-pt
   :nv  ",-" #'evil-numbers/dec-at-pt
-  :nv  ",c" #'counsel-git-grep-complete-line
+  ;; :nv  ",c" #'counsel-git-grep-complete-line
 
   ;; not so useful with ace-link
   ;; mostly use it for open link for git pull request
   ;; :nv  "<C-return>"     #'wand:execute
   ;; :nv  "<C-mouse-1>"    #'wand:execute
   )
-
-(map! :map c++-mode-map
-  :n ",d" #'xref-find-definitions
-  :n ",r" #'ccls/callers
-  :n ",f" #'clang-format-buffer)
 
 (map! :map nxml-mode-map
   :desc "xpath" :n ",xp" #'nxml-where)
