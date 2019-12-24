@@ -224,3 +224,19 @@ from lines like:
 (defun buffer-string* (buffer)
   (with-current-buffer buffer
     (buffer-string)))
+
+;;;###autoload
+(defun me/read-lines (filePath)
+  "Return a list of lines of a file at filePath."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (split-string (buffer-string) "\n" t)))
+
+;;;###autoload
+(defun me/send-to-project-term (cmd)
+  "send cmd to the project terminal"
+  (interactive)
+  (let ( (bf-name (format "%s-term" (+workspace-current-name))) )
+    (comint-send-string bf-name (format "%s\n" cmd) )
+    )
+  )
