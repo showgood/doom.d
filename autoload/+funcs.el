@@ -262,8 +262,8 @@ from lines like:
   (interactive)
   (ivy-read "options: " (me/read-lines file)
             :action '(1
-                      ("o" (lambda (x) (me/get-value x me/ivy-separator)) "get value")
-                      ("j" (lambda (x) (me/get-key x me/ivy-separator)) "get key"))))
+                      ("o" (lambda (x) (me/get-key x me/ivy-separator)) "get key")
+                      ("j" (lambda (x) (me/get-value x me/ivy-separator)) "get value"))))
 
 ;; for eg, below is an example for using this me/ivy-from-file
 ;; (defvar me/ivy-separator "\\$\\$\\$")
