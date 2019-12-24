@@ -185,3 +185,5 @@
       :n ",D" #'lsp-describe-thing-at-point
       :v ",f" #'lsp-format-region)
   ))
+
+(defvar me/ivy-separator "\\$\\$\\$")
