@@ -187,3 +187,9 @@
   ))
 
 (defvar me/ivy-separator "\\$\\$\\$")
+
+(after! vterm
+  (add-to-list 'vterm-eval-cmds '("ediff-files" ediff-files))
+  (add-to-list 'vterm-eval-cmds '("magit-diff" magit-diff-dwim))
+  (add-to-list 'vterm-eval-cmds '("magit-diff-staged" magit-diff-staged))
+)
