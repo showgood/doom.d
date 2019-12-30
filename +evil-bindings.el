@@ -808,3 +808,10 @@
 (map!
  "M-<backspace>"  #'backward-delete-word
  "C-<backspace>"  #'backward-delete-word)
+
+(map! :map vterm-mode-map
+  :desc "back to evil mode" :i "C-;" #'evil-normal-state
+  ;; following key bindings are not working..
+  :desc "up" :i "C-k" #'vterm-send-up
+  :desc "down" :i "C-j" #'vterm-send-down
+  :desc "paste" :i "C-y" #'vterm-yank)
