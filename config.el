@@ -2,10 +2,10 @@
 
 ;; Place your private configuration here
 
-(setq doom-font (font-spec :family "SF Mono" :size 16)
-      doom-variable-pitch-font (font-spec :family "SF Mono")
-      doom-unicode-font (font-spec :family "SF Mono")
-      doom-big-font (font-spec :family "SF Mono" :size 20))
+(setq doom-font (font-spec :family "SF Mono Powerline" :size 16)
+      doom-variable-pitch-font (font-spec :family "SF Mono Powerline")
+      doom-unicode-font (font-spec :family "SF Mono Powerline")
+      doom-big-font (font-spec :family "SF Mono Powerline" :size 20))
 
 (require 'company)
 (setq company-idle-delay 0.2
