@@ -192,4 +192,7 @@
   (add-to-list 'vterm-eval-cmds '("ediff-files" ediff-files))
   (add-to-list 'vterm-eval-cmds '("magit-diff" magit-diff-dwim))
   (add-to-list 'vterm-eval-cmds '("magit-diff-staged" magit-diff-staged))
+  (add-to-list 'vterm-eval-cmds '("magit-status-here" magit-status-here))
+  (add-to-list 'vterm-eval-cmds '("magit-status" magit-status))
+  (add-to-list 'vterm-eval-cmds '("counsel-find-file" counsel-find-file))
 )
