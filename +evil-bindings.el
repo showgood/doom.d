@@ -487,7 +487,8 @@
         :desc "Sudo find file"              "u"   #'doom/sudo-find-file
         :desc "Sudo this file"              "U"   #'doom/sudo-this-file
         :desc "Yank file name"              "y"   #'copy-file-name-to-clipboard
-        :desc "Yank file full path"         "Y"   #'+default/yank-buffer-filename)
+        :desc "Yank file full path"         "Y"   #'+default/yank-buffer-filename
+        :desc "find file with fzf"          "z"   #'prot/counsel-fzf-rg-files)
 
       ;;; <leader> g --- git
       (:prefix-map ("g" . "git")

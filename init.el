@@ -179,6 +179,7 @@
        diff
        python
        pdf
+       ivy
 
        :app
        ;;calendar

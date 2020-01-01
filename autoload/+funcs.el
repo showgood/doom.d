@@ -240,35 +240,3 @@ from lines like:
     (comint-send-string bf-name (format "%s\n" cmd) )
     )
   )
-
-;;;###autoload
-(defun me/get-key (x separator)
-  (kill-new (string-trim (car (split-string x separator t))))
-)
-
-;;;###autoload
-(defun me/get-value (x separator)
-  (kill-new (string-trim (cadr (split-string x separator t))))
-)
-
-;;;###autoload
-(defun me/ivy-transform-with-separator (s)
-  (replace-regexp-in-string me/ivy-separator "   " s)
-)
-
-;;;###autoload
-(defun me/ivy-from-file (file)
-  "read lines from file and display two column list by using me/ivy-separator"
-  (interactive)
-  (ivy-read "options: " (me/read-lines file)
-            :action '(1
-                      ("o" (lambda (x) (me/get-key x me/ivy-separator)) "get key")
-                      ("j" (lambda (x) (me/get-value x me/ivy-separator)) "get value"))))
-
-;; for eg, below is an example for using this me/ivy-from-file
-;; (defvar me/ivy-separator "\\$\\$\\$")
-
-;; (defun me/test-ivy ()
-;;   (interactive)
-;;   (ivy-set-display-transformer 'me/test-ivy 'me/ivy-transform-with-separator)
-;;   (me/ivy-from-file "~/.doom.d/test.txt"))

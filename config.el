@@ -90,14 +90,6 @@
   (setq elpamr-default-output-directory "~/myelpa")
 )
 
-(setq ivy-count-format "(%d/%d) "
-      ;; http://oremacs.com/2017/11/30/ivy-0.10.0/
-      ivy-use-selectable-prompt t)
-
-;; http://oremacs.com/2017/04/09/ivy-0.9.0/
-(setq counsel-yank-pop-separator "\n-------------------------------------------------------\n")
-
-
 (setq +org-dir (concat (substitute-in-file-name "$HOME/") "org"))
 (setq +notes-dir (concat (substitute-in-file-name "$HOME/") "notes"))
 (defvar my-snippets-dir (expand-file-name "snippets/" doom-private-dir))
