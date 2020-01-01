@@ -809,8 +809,20 @@
  "M-<backspace>"  #'backward-delete-word
  "C-<backspace>"  #'backward-delete-word)
 
-(map! :map vterm-mode-map
-  :desc "back to evil mode" :i "C-;" #'evil-normal-state
-  ;; following key bindings are not working for insert mode, only normal mode
-  :desc "up" :niv "C-k" #'vterm-send-up
-  :desc "down" :niv "C-j" #'vterm-send-down)
+;C-c C-e and C-c C-q is to work with vim when running in vterm
+(map!
+  (:map vterm-mode-map
+
+    [remap whole-line-or-region-yank] #'vterm-yank
+    "C-;"                        #'evil-normal-state
+    "C-k"                        #'vterm-send-up
+    "C-j"                        #'vterm-send-down
+    "C-c C-k"                    #'evil-window-up
+    "C-c C-j"                    #'evil-window-down
+    "C-c C-e"                        (lambda ()
+                                        (interactive)
+                                        (vterm-send-key "<escape>" nil t nil))
+    "C-c C-q"                        (lambda ()
+                                        (interactive)
+                                        (vterm-send-key ":" nil t nil))
+    ))
