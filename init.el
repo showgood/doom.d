@@ -168,6 +168,7 @@
        :my
        data
        anki
+       mac
        ;; ccls
        git
        term

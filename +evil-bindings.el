@@ -403,10 +403,10 @@
           :desc "Switch to final workspace" "0"   #'+workspace/switch-to-final))
 
       (:prefix-map ("a" . "applications")
-        :desc "align-regexp"         "r"   #'align-regexp
-        :desc "avy-copy-line"        "c"   #'avy-copy-line
-        :desc "avy-copy-region"      "v"   #'avy-copy-region
-        :desc "+term/open"           "t"   #'+term/here)
+        :desc "avy-copy-line"              "c" #'avy-copy-line
+        :desc "new org journal entry"      "j" #'org-journal-new-entry
+        :desc "align-regexp"               "r" #'align-regexp
+        :desc "avy-copy-region"            "v" #'avy-copy-region)
 
       ;;; <leader> b --- buffer
       (:prefix-map ("b" . "buffer")

@@ -188,3 +188,5 @@
   (add-to-list 'vterm-eval-cmds '("magit-status" magit-status))
   (add-to-list 'vterm-eval-cmds '("counsel-find-file" counsel-find-file))
 )
+
+(setq counsel-search-engine 'google)
