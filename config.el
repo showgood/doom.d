@@ -5,7 +5,8 @@
 (setq doom-font (font-spec :family "SF Mono Powerline" :size 16)
       doom-variable-pitch-font (font-spec :family "SF Mono Powerline")
       doom-unicode-font (font-spec :family "SF Mono Powerline")
-      doom-big-font (font-spec :family "SF Mono Powerline" :size 20))
+      doom-big-font (font-spec :family "SF Mono Powerline" :size 20)
+      doom-theme 'doom-solarized-light)
 
 (require 'company)
 (setq company-idle-delay 0.2
@@ -188,5 +189,8 @@
   (add-to-list 'vterm-eval-cmds '("magit-status" magit-status))
   (add-to-list 'vterm-eval-cmds '("counsel-find-file" counsel-find-file))
 )
+
+(use-package! symbol-overlay
+  :defer t)
 
 (setq counsel-search-engine 'google)

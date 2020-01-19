@@ -577,9 +577,14 @@
         :desc "From clipboard"                "y"   #'+default/yank-pop)
 
       ;;; <leader> j --- jump
-      (:prefix-map ("j" . "jump")
-        :desc "jump back"                     "b"   #'avy-pop-mark
-        :desc "dumb-jump-go"                  "d"   #'dumb-jump-go)
+      (:prefix-map ("j" . "jump/highlight")
+        :desc "toggle highlight symbol at point"     "t"   #'symbol-overlay-mode
+        :desc "toggle symbol overlay minor mode"     "h"   #'symbol-overlay-put
+        :desc "remove all highlights"                "H"   #'symbol-overlay-remove-all
+        :desc "Switch to the closest symbol highlighted nearby forward"     "n"   #'symbol-overlay-switch-forward
+        :desc "Switch to the closest symbol highlighted nearby backward"     "p"   #'symbol-overlay-switch-backward
+        :desc "jump back"                            "b"   #'avy-pop-mark
+        :desc "dumb-jump-go"                         "d"   #'dumb-jump-go)
 
       ;; "o" '(:ignore t :which-key "bookmark")
       ;; "om" '(bookmark-set :which-key "set bookmark")

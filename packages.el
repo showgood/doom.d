@@ -19,6 +19,7 @@
 (package! company-tabnine)
 (package! restclient)
 
+(package! symbol-overlay)
 ;; (package! engine-mode)
 ;; (package! wand)
 ;; (package! visual-regexp)
