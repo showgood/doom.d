@@ -404,8 +404,14 @@
 
       (:prefix-map ("a" . "applications")
         :desc "avy-copy-line"              "c" #'avy-copy-line
+        :desc "bookmark Dired buffer"      "d" #'bookmark-set
+        :desc "bookmark a file"            "f" #'bmkp-file-target-set
         :desc "new org journal entry"      "j" #'org-journal-new-entry
+        :desc "bookmark current buffer"    "k" #'bmkp-bookmark-set-confirm-overwrite
+        :desc "list all bookmarks"         "l" #'bookmark-bmenu-list
         :desc "align-regexp"               "r" #'align-regexp
+        :desc "bookmark a snippet"         "s" #'bmkp-set-snippet-bookmark
+        :desc "bookmark a URL"             "u" #'bmkp-url-target-set
         :desc "avy-copy-region"            "v" #'avy-copy-region)
 
       ;;; <leader> b --- buffer
