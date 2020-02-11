@@ -266,6 +266,7 @@
   :desc  "toggle between h/cpp" :nv "gA" #'projectile-find-other-file-other-window
   :desc  "switch workspace buffer" :nv "gb" #'+ivy/switch-workspace-buffer
   :desc  "switch all buffer" :nv "gB" #'ivy-switch-buffer
+  :desc  "hyperbole" :niv "M-RET" #'hkey-either
 
   :nv "gc" #'evilnc-comment-or-uncomment-lines
   :nv "gd" #'+lookup/definition
@@ -308,7 +309,7 @@
   :nv "gy" #'evilnc-copy-and-comment-lines
   ;; gz - evil multi-cursor
 
-  "C-h" #'evil-window-left
+  ;"C-h" #'evil-window-left
   "C-j" #'evil-window-down
   "C-k" #'evil-window-up
   "C-l" #'evil-window-right
